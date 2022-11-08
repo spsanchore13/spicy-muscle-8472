@@ -1,3 +1,1 @@
-# spicy-muscle-8472
-
-<h3>Construct Week - 6 </h3>
+<h1>Masai School Construct Week 6 Project</h1>
