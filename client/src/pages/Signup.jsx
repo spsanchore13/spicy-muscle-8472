@@ -5,7 +5,7 @@ import SignupModel from '../components/signup/Modal'
 const Signup = () => {
   return (
     <Box>
-        <Heading>SignupModel</Heading>
+        <Heading>Sign up</Heading>
         <SignupModel/>
     </Box>
   )
