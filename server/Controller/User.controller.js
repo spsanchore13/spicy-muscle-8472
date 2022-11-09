@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { UserModel } = require("../Model/User.model");
 
 const Signup = async (req, res) => {
-    const { email, password, name, username, mobile } = req.body;
+    // console.log(req.body)    const { email, password, name, username, mobile } = req.body;
     const userId = await UserModel.find({ email: email })
     if (userId) {
         res.status(403).send({ "message": "User already exists" })
@@ -35,14 +35,14 @@ const Login = async (req, res) => {
     bcrypt.compare(password, hash, function (err, result) {
         if (result) {
             var token = jwt.sign({ email: email }, process.env.SECRET_KEY);
-            res.status(200).send({ "message": "login successfully", "token": token,...user })
+            res.status(200).send({ "message": "login successfully", "token": token, ...user })
         } else {
             res.status(401).send({ "message": "Invalid Credentials" })
         }
 
     });
 }
-const userOperations = { Signup,Login }
+const userOperations = { Signup, Login }
 module.exports = {
     userOperations
 }
