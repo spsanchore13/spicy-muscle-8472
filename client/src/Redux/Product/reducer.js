@@ -10,7 +10,6 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     const { type, payload } = action;
-
     switch (type) {
         case types.GET_PRODUCTS_REQUEST:
             return { ...state, isLoading: true }
