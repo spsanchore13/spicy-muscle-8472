@@ -8,7 +8,7 @@ const userSchema = new Schema({
     username: { type: String, required: true },
 
 }, {
-    timestamp: true
+    timestamps: true
 })
 const UserModel = model("user", userSchema)
 

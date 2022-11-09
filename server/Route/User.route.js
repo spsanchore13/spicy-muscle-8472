@@ -3,7 +3,7 @@ const { userOperations } = require("../Controller/User.controller")
 
 const routeUser = Router()
 
-routeUser.post("/add", userOperations.Signup)
+routeUser.post("/signup", userOperations.Signup)
 
 module.exports = {
     routeUser
