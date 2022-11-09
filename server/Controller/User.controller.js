@@ -28,8 +28,21 @@ const Signup = async (req, res) => {
     }
 
 }
+const Login = async (req, res) => {
+    const { email, password } = req.body;
+    const user = await UserModel.findOne({ email })
+    const hash = user.password
+    bcrypt.compare(password, hash, function (err, result) {
+        if (result) {
+            var token = jwt.sign({ email: email }, process.env.SECRET_KEY);
+            res.status(200).send({ "message": "login successfully", "token": token,...user })
+        } else {
+            res.status(401).send({ "message": "Invalid Credentials" })
+        }
 
-const userOperations = { Signup }
+    });
+}
+const userOperations = { Signup,Login }
 module.exports = {
     userOperations
 }
