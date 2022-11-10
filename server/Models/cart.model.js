@@ -13,10 +13,9 @@ const CartSchema = new mongoose.Schema({
         quantity: {
             type: Number,
             required: true,
-            min: [1, 'Quantity can not be less then 1.'],
-            default: 1
         },
-        price: Number
+        price: Number,
+        image: { type: String, required: true }
     }],
     bill: {
         type: Number,

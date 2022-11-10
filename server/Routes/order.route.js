@@ -1,8 +1,9 @@
 const { Router } = require('express');
-const orderController = require('../controllers/orderControllers');
-const router = Router();
+const orderController = require('../Controllers/orderController');
+const OrderRouter = Router();
 
-router.get('/order/:id', orderController.get_orders);
-router.post('/order/:id', orderController.checkout);
+OrderRouter.get('/order/:id', orderController.get_orders);
+OrderRouter.post('/order/:id', orderController.checkout);
+OrderRouter.post("/order/paymentverification", orderController.paymentVerification)
 
-module.exports = router;
+module.exports = OrderRouter;
