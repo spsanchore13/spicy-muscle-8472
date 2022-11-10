@@ -3,8 +3,9 @@ const jwt = require("jsonwebtoken");
 const { UserModel } = require("../Model/User.model");
 
 const Signup = async (req, res) => {
-    // console.log(req.body)    const { email, password, name, username, mobile } = req.body;
+    const { email, password, name, username, mobile } = req.body;
     const userId = await UserModel.find({ email: email })
+    console.log(userId)
     if (userId) {
         res.status(403).send({ "message": "User already exists" })
     } else {
