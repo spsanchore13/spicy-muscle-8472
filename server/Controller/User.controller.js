@@ -7,7 +7,7 @@ const Signup = async (req, res) => {
     if (!email || !password || !name || !username || !mobile) {
         res.status(400).json({ msg: 'Please enter all fields' });
     }
-    const userId = await UserModel.find({ email: email })
+    const userId = await UserModel.findOne({ email: email })
     if (userId) {
         res.status(400).send({ "message": "User already exists" })
     } else {
@@ -15,7 +15,6 @@ const Signup = async (req, res) => {
             if (err) {
                 res.status(500).send({ "message": "something went wrong. please sign up again" })
             }
-
             const user_data = new UserModel({
                 email: email,
                 password: hash,
