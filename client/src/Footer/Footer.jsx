@@ -12,13 +12,13 @@ const Footer = () => {
 <Divider w="100%" borderColor='#4B5666' />
       <SimpleGrid columns={[1, 1, 1, 1]} backgroundColor="#F7F6F2">
 
-        <Box w="100%" h="150px" backgroundColor="#F7F6F2">
+        <Box w={["10%","25%","50%","100%"]} h="150px" backgroundColor="#F7F6F2">
           <Box  w="85%" h="95%" m="auto" backgroundColor="#F7F6F2">
             <HStack  w="100%" h="100px" backgroundColor="#F7F6F2">
-              <Box  w="90%" h="100%" backgroundColor="#F7F6F2">
-                <Text fontSize="18px" fontWeight="600" lineHeight={2} backgroundColor="#F7F6F2">Sign Up for Email</Text>
-                <Text fontSize="13px" color="#5C5C5F" backgroundColor="#F7F6F2">Receive early access to new arrivals, sales, exclusive content, events</Text>
-                <Text fontSize="13px" color="#5C5C5F" backgroundColor="#F7F6F2"> and much more!</Text>
+              <Box  w="90%" h="100%" backgroundColor="#F7F6F2" direction={["row","row","row","row"]}>
+                <Text fontSize={["12px","14px","16px","18px"]} fontWeight="600" lineHeight={2} backgroundColor="#F7F6F2">Sign Up for Email</Text>
+                <Text fontSize={["9px","10px","13px","13px"]} color="#5C5C5F" backgroundColor="#F7F6F2">Receive early access to new arrivals, sales, exclusive content, events</Text>
+                <Text fontSize={["9px","10px","13px","13px"]} color="#5C5C5F" backgroundColor="#F7F6F2"> and much more!</Text>
               </Box>
               <Box  w="90%" h="100%" backgroundColor="#F7F6F2">
                 <Text fontSize="15px" color="#5C5C5F" backgroundColor="#F7F6F2" >Email Address*</Text>
