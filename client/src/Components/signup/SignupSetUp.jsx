@@ -118,7 +118,7 @@ export default function SignupModel() {
                   }
                 />
                 <Input
-                  type="password"
+                  type={show ? "text" : "password"}
                   placeholder="Password"
                   value={state.password}
                   onChange={(e) =>
