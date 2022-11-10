@@ -57,9 +57,7 @@ export default function SignupModel() {
   const [state, setState] = useReducer(reducer, initialState);
 
   const hanldeSignUp = () => {
-    dispatch(signUp(state, toast)).then((r) => {
-      navigate("/login");
-    });
+    dispatch(signUp(state, toast, navigate));
   };
   const handleClick = () => {
     setShow(!show);

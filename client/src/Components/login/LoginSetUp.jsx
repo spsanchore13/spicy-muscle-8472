@@ -52,9 +52,7 @@ export default function LoginModel() {
       email,
       password,
     };
-    dispatch(LoginUser(payload, toast)).then((r) => {
-      navigate("/");
-    });
+    dispatch(LoginUser(payload, toast, navigate));
   };
   const handleClick = () => {
     setShow(!show);
