@@ -1,12 +1,4 @@
-import { FocusLock } from "@chakra-ui/focus-lock";
-import {
-  EmailIcon,
-  LockIcon,
-  PhoneIcon,
-  UnlockIcon,
-  ViewIcon,
-  ViewOffIcon,
-} from "@chakra-ui/icons";
+import { EmailIcon, PhoneIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import {
   Modal,
   ModalOverlay,
@@ -17,24 +9,58 @@ import {
   ModalCloseButton,
   Button,
   useDisclosure,
-  Heading,
   Input,
   Stack,
   InputGroup,
   InputLeftAddon,
-  InputRightElement,
-  InputLeftElement,
   Text,
   Divider,
-  Box,
+  useToast,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { signUp } from "../../Redux/Authentication/action";
+import { useNavigate } from "react-router-dom";
+
+const initialState = {
+  email: "",
+  password: "",
+  name: "",
+  mobile: 0,
+  username: "",
+};
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "username":
+      return { ...state, username: action.payload };
+    case "email":
+      return { ...state, email: action.payload };
+    case "password":
+      return { ...state, password: action.payload };
+    case "name":
+      return { ...state, name: action.payload };
+    case "mobile":
+      return { ...state, mobile: action.payload };
+    default:
+      return state;
+  }
+};
+
 export default function SignupModel() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
-  console.log(show);
+  const [state, setState] = useReducer(reducer, initialState);
+
+  const hanldeSignUp = () => {
+    dispatch(signUp(state, toast)).then((r) => {
+      navigate("/login");
+    });
+  };
   const handleClick = () => {
     setShow(!show);
   };
@@ -58,11 +84,23 @@ export default function SignupModel() {
             <Stack spacing={3}>
               <InputGroup>
                 <InputLeftAddon children={<FaUserCircle color="gray" />} />
-                <Input type="text" placeholder="Name" />
+                <Input
+                  type="text"
+                  value={state.name}
+                  onChange={(e) =>
+                    setState({ type: "name", payload: e.target.value })
+                  }
+                />
               </InputGroup>
               <InputGroup>
                 <InputLeftAddon children={<AiFillEdit color="gray" />} />
-                <Input type="text" placeholder="Username" />
+                <Input
+                  type="text"
+                  value={state.username}
+                  onChange={(e) =>
+                    setState({ type: "username", payload: e.target.value })
+                  }
+                />
               </InputGroup>
               <InputGroup size="md">
                 <InputLeftAddon
@@ -77,22 +115,42 @@ export default function SignupModel() {
                   }
                 />
                 <Input
-                  type={show ? "text" : "password"}
-                  placeholder="Enter password"
+                  type="password"
+                  value={state.password}
+                  onChange={(e) =>
+                    setState({ type: "password", payload: e.target.value })
+                  }
                 />
               </InputGroup>
               <InputGroup>
                 <InputLeftAddon children={<EmailIcon color="gray.300" />} />
-                <Input type="tel" placeholder="Email" />
+                <Input
+                  type="email"
+                  value={state.email}
+                  onChange={(e) =>
+                    setState({ type: "email", payload: e.target.value })
+                  }
+                />
               </InputGroup>
               <InputGroup>
                 <InputLeftAddon children={<PhoneIcon color="gray.300" />} />
-                <Input type="tel" placeholder="Mobile No." />
+                <Input
+                  type="number"
+                  value={state.mobile}
+                  onChange={(e) =>
+                    setState({ type: "mobile", payload: e.target.value })
+                  }
+                />
               </InputGroup>
             </Stack>
           </ModalBody>
 
-          <Button mx={"6"} bg={"#4b5666"} color={"white"}>
+          <Button
+            mx={"6"}
+            bg={"#4b5666"}
+            color={"white"}
+            onClick={hanldeSignUp}
+          >
             Sign up
           </Button>
 
