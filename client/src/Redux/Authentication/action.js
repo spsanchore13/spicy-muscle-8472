@@ -17,9 +17,9 @@ const signUp = (payload, toast) => (dispatch) => {
         });
 };
 
-const Login = (payload, toast) => (dispatch) => {
+const LoginUser = (payload, toast) => (dispatch) => {
     dispatch({ type: data.LOGIN_REQUEST })
-    return axios.post("http://localhost:8000/auth/signup", payload).then((r) => {
+    return axios.post("http://localhost:8000/auth/login", payload).then((r) => {
         console.log(r)
         setToast(toast, "Login Successfully", "success");
         dispatch({ type: data.LOGIN_SUCCESS, payload: r.data })
@@ -28,4 +28,4 @@ const Login = (payload, toast) => (dispatch) => {
         dispatch({ type: data.LOGIN_FAILURE, payload: e });
     })
 }
-export { signUp, Login }
+export { signUp, LoginUser }
