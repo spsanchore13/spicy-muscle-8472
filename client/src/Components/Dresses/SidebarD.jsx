@@ -1,7 +1,7 @@
-import React from 'react'
-import styles from"./styles/Sidebar2.module.css"
+import React from "react";
+import styles from "../styles/SidebarD.module.css";
 
-const Sidebar2 = () => {
+const SidebarD = () => {
   return (
     <div className={styles.maindiv}>
       <p className={styles.firstp}>Browse by:</p>
@@ -408,4 +408,4 @@ const Sidebar2 = () => {
   );
 };
 
-export default Sidebar2;
+export default SidebarD;

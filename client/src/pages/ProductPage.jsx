@@ -1,10 +1,9 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import Productheader from "../components/Productheader";
-import { useParams } from "react-router-dom";
-import ShoesProducts from "../components/ShoesProducts";
-import Sidebar2 from "../components/Sidebar2";
 import SimpleSidebar from "../components/Sidebar";
+import Productheader from "../components/Shoes/Productheader";
+import Sidebar2 from "../components/Shoes/Sidebar2";
+import ShoesProducts from "../components/Shoes/ShoesProducts";
 
 const ProductPage = () => {
   return (
