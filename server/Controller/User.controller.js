@@ -8,6 +8,7 @@ const Signup = async (req, res) => {
         res.status(400).json({ msg: 'Please enter all fields' });
     }
     const userId = await UserModel.find({ email: email })
+    console.log(userId)
     if (userId) {
         res.status(400).send({ "message": "User already exists" })
     } else {
