@@ -28,7 +28,7 @@ const initialState = {
   email: "",
   password: "",
   name: "",
-  mobile: 0,
+  mobile: "",
   username: "",
 };
 const reducer = (state, action) => {
@@ -88,6 +88,7 @@ export default function SignupModel() {
                 <Input
                   type="text"
                   value={state.name}
+                  placeholder="Name"
                   onChange={(e) =>
                     setState({ type: "name", payload: e.target.value })
                   }
@@ -97,6 +98,7 @@ export default function SignupModel() {
                 <InputLeftAddon children={<AiFillEdit color="gray" />} />
                 <Input
                   type="text"
+                  placeholder="Username"
                   value={state.username}
                   onChange={(e) =>
                     setState({ type: "username", payload: e.target.value })
@@ -117,6 +119,7 @@ export default function SignupModel() {
                 />
                 <Input
                   type="password"
+                  placeholder="Password"
                   value={state.password}
                   onChange={(e) =>
                     setState({ type: "password", payload: e.target.value })
@@ -127,6 +130,7 @@ export default function SignupModel() {
                 <InputLeftAddon children={<EmailIcon color="gray.300" />} />
                 <Input
                   type="email"
+                  placeholder="Email"
                   value={state.email}
                   onChange={(e) =>
                     setState({ type: "email", payload: e.target.value })
@@ -137,6 +141,7 @@ export default function SignupModel() {
                 <InputLeftAddon children={<PhoneIcon color="gray.300" />} />
                 <Input
                   type="number"
+                  placeholder="Mobile No."
                   value={state.mobile}
                   onChange={(e) =>
                     setState({ type: "mobile", payload: e.target.value })

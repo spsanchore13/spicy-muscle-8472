@@ -82,6 +82,7 @@ export default function LoginModel() {
                 <InputLeftAddon children={<EmailIcon color="gray.300" />} />
                 <Input
                   type="email"
+                  placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -100,6 +101,7 @@ export default function LoginModel() {
                 />
                 <Input
                   type={show ? "text" : "password"}
+                  placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
