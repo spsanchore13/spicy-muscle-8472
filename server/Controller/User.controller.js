@@ -43,6 +43,7 @@ const Login = async (req, res) => {
         if (result) {
             const token = jwt.sign({ email: email }, process.env.SECRET_KEY, { expiresIn: 60 * 60 });
             res.status(200).send({ "message": "login successfully", "token": token })
+
         } else {
             res.status(401).send({ "message": "Invalid Credentials" })
         }
