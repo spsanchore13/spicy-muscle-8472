@@ -7,8 +7,6 @@ import Sidebar2 from "../components/Sidebar2";
 import SimpleSidebar from "../components/Sidebar";
 
 const ProductPage = () => {
-  const { products } = useParams();
-
   return (
     <Box>
       <Productheader />
@@ -18,7 +16,7 @@ const ProductPage = () => {
         {/* <SimpleSidebar /> */}
 
         <Box>
-          <ShoesProducts products={products} />
+          <ShoesProducts />
         </Box>
       </Box>
     </Box>
