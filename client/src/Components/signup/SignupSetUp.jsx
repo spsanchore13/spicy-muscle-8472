@@ -55,7 +55,7 @@ export default function SignupModel() {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [state, setState] = useReducer(reducer, initialState);
-
+  
   const hanldeSignUp = () => {
     dispatch(signUp(state, toast, navigate));
   };

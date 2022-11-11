@@ -5,21 +5,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { AdminUpdate } from "./AdminModal";
 import AdminNavbar from "./AdminNavbar";
 import { DeleteIcon, Icon } from "@chakra-ui/icons";
-//import { getProducts,deleteProducts } from "../Redux/Product/action";
+import { getProducts } from "../Redux/Product/action";
 const AdminPage = () => {
   const [isLargerThan] = useMediaQuery("(min-width: 468px)");
   const dispatch = useDispatch();
-  const products = useSelector((state) => state?.dataReducer?.products);
-//  const loading = useSelector((store) => store.dataReducer.isLoading);
+  const products = useSelector((state) => state?.Product?.products);
+  console.log(products);
+  //  const loading = useSelector((store) => store.dataReducer.isLoading);
   // const deleteProduct = (id) => {
   //   dispatch(deleteProducts(id)).then(() => {
   //     dispatch(getProducts());
   //   });
   // };
 
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
   return (
     <>
       <AdminNavbar />
@@ -65,7 +66,7 @@ const AdminPage = () => {
                     id={item.id}
                     products={products}
                     dispatch={dispatch}
-                    //getData={getProducts}
+                    getData={getProducts}
                   />
                 </Box>
               </Flex>
