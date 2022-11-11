@@ -62,9 +62,6 @@ export default function SignupModel() {
   const handleClick = () => {
     setShow(!show);
   };
-  const showLogin = () => {
-    navigate("/login");
-  };
   return (
     <>
       <Button onClick={onOpen}>Sign up</Button>
@@ -162,12 +159,7 @@ export default function SignupModel() {
 
           <ModalFooter>
             Already Have an Account?
-            <Text
-              color={"black"}
-              fontWeight={"semibold"}
-              mx={"5"}
-              onClick={showLogin}
-            >
+            <Text color={"black"} fontWeight={"semibold"} mx={"5"} onClick={""}>
               Login
             </Text>
           </ModalFooter>
