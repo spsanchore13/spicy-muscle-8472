@@ -17,25 +17,10 @@ import {
   Divider,
   useToast,
 } from "@chakra-ui/react";
-import { useReducer, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Login, LoginUser, signUp } from "../../Redux/Authentication/action";
+import { LoginUser } from "../../Redux/Authentication/action";
 import { useNavigate } from "react-router-dom";
-
-// const initialState = {
-//   email: "",
-//   password: "",
-// };
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case "email":
-//       return { ...state, email: action.payload };
-//     case "password":
-//       return { ...state, password: action.payload };
-//     default:
-//       return state;
-//   }
-// };
 
 export default function LoginModel() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,7 +28,6 @@ export default function LoginModel() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
-  //   const [state, setState] = useReducer(reducer, initialState);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -57,9 +41,7 @@ export default function LoginModel() {
   const handleClick = () => {
     setShow(!show);
   };
-  const showRegister = () => {
-    navigate("/signup");
-  };
+
   return (
     <>
       <Button onClick={onOpen}>Login</Button>
@@ -115,12 +97,7 @@ export default function LoginModel() {
 
           <ModalFooter>
             Don't Have an Account?
-            <Text
-              color={"black"}
-              fontWeight={"semibold"}
-              mx={"5"}
-              onClick={showRegister}
-            >
+            <Text color={"black"} fontWeight={"semibold"} mx={"5"} onClick={""}>
               Register
             </Text>
           </ModalFooter>
