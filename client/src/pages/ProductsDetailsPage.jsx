@@ -22,6 +22,7 @@ import {
   removeSelectedProducts,
   selectedProducts,
 } from "../Redux/Product/action";
+import { postCartItems } from "../Redux/Cart/action";
 
 const ProductsDetails = () => {
   const dispatch = useDispatch();
@@ -29,15 +30,27 @@ const ProductsDetails = () => {
   const product = useSelector((state) => state.product);
   console.log(product);
 
-  const { images, name, price, type } = product;
+  const item = {
+    productId: product[0]?._id,
+    name: product[0]?.name,
+    price: product[0]?.price,
+    quantity: 1,
+    image: product[0]?.images[0]?.image,
+  };
+
+  const userId = "636ccf3ff2b55f7b5ac1f105";
 
   const { productId } = useParams();
 
-  const addProducts = () => {
-    // let payload = {
-    //   ...product,
-    // };
-    // dispatch(addToCart(payload));
+  const addProducts = (item, userId) => {
+    console.log(item);
+    dispatch(postCartItems(item, userId))
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const fetchProductsDetail = async () => {
@@ -56,6 +69,8 @@ const ProductsDetails = () => {
       dispatch(removeSelectedProducts());
     };
   }, [productId]);
+
+  const { name, price, images } = product;
 
   return (
     <Box>
@@ -76,8 +91,8 @@ const ProductsDetails = () => {
           >
             <Box direction={["column", "row"]}>
               <Image
-              rounded={"md"}
-                boxSize={["sm","md"]}
+                rounded={"md"}
+                boxSize={["sm", "md"]}
                 alt={"product image"}
                 src={product[0].images[0].image}
                 fit={"cover"}
@@ -86,7 +101,11 @@ const ProductsDetails = () => {
                 h={{ base: "100px", sm: "400px", lg: "500px" }}
               />
               <Box>
-              <HStack margin={10} direction={["column", "row"]} spacing="24px">
+                <HStack
+                  margin={10}
+                  direction={["column", "row"]}
+                  spacing="24px"
+                >
                   <Box w="200px" h="200px">
                     <Image src={product[0].images[1].image} />
                   </Box>
@@ -94,7 +113,11 @@ const ProductsDetails = () => {
                     <Image src={product[0].images[2].image} />
                   </Box>
                 </HStack>
-                <HStack  margin={10} direction={["column", "row"]} spacing="24px">
+                <HStack
+                  margin={10}
+                  direction={["column", "row"]}
+                  spacing="24px"
+                >
                   <Box w="200px" h="200px">
                     <Image src={product[0].images[3].image} />
                   </Box>
@@ -103,7 +126,6 @@ const ProductsDetails = () => {
                   </Box>
                 </HStack>
               </Box>
-               
             </Box>
             <Stack spacing={{ base: 6, md: 10 }}>
               <Box as={"header"}>
@@ -129,55 +151,7 @@ const ProductsDetails = () => {
                 </Text>
               </Box>
 
-              <Stack
-                spacing={{ base: 4, sm: 6 }}
-                direction={"column"}
-                // divider={
-                //   <StackDivider
-                //   borderColor={("gray.200", "gray.600")}
-                //   />
-                // }
-              >
-               
-                {/* <Text
-                // color={useColorModeValue("gray.500", "gray.400")}
-                fontSize={"2xl"}
-                fontWeight={"300"}
-              >
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore
-              </Text>
-              <Text fontSize={"lg"}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                aliquid amet at delectus doloribus dolorum expedita hic,
-                ipsum maxime modi nam officiis porro, quae, quisquam quos
-                reprehenderit velit? Natus, totam.
-              </Text> */}
-                {/* </VStack> */}
-                {/* <Box> */}
-                {/* <Text
-                fontSize={{ base: "16px", lg: "18px" }}
-                // color={useColorModeValue("yellow.500", "yellow.300")}
-                fontWeight={"500"}
-                textTransform={"uppercase"}
-                mb={"4"}
-              >
-                Features
-              </Text> */}
-
-                {/* <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-                <List spacing={2}>
-                  <ListItem>Chronograph</ListItem>
-                  <ListItem>Master Chronometer Certified</ListItem>{" "}
-                  <ListItem>Tachymeter</ListItem>
-                </List>
-                <List spacing={2}>
-                  <ListItem>Anti‑magnetic</ListItem>
-                  <ListItem>Chronometer</ListItem>
-                  <ListItem>Small seconds</ListItem>
-                </List>
-              </SimpleGrid> */}
-                {/* </Box> */}
+              <Stack spacing={{ base: 4, sm: 6 }} direction={"column"}>
                 <Box>
                   <Text
                     fontSize={{ base: "16px", lg: "18px" }}
@@ -192,11 +166,11 @@ const ProductsDetails = () => {
 
                   <List spacing={3}>
                     <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Color :
-                  </Text>
-                  {product[0].colors[0].color}
-                </ListItem>
+                      <Text as={"span"} fontWeight={"bold"}>
+                        Color :
+                      </Text>
+                      {product[0].colors[0].color}
+                    </ListItem>
                     {/* <ListItem>
                       <Text as={"span"} fontWeight={"bold"}>
                         Product Ratings Count:
@@ -227,7 +201,7 @@ const ProductsDetails = () => {
                 mt={8}
                 size={"lg"}
                 py={"7"}
-                onClick={addProducts}
+                onClick={() => addProducts(item, userId)}
                 bg="black"
                 color="whiteAlpha.900"
                 textTransform={"uppercase"}

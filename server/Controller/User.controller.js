@@ -10,9 +10,6 @@ const Signup = async (req, res) => {
     }
     const userId = await UserModel.findOne({ email })
 
-    // res.status(400).json({ msg: 'Please enter all fields' });
-    //}
-    // const userId = await UserModel.findOne({ email: email })
 
     if (userId) {
         res.status(400).send({ "message": "User already exists" })
@@ -36,7 +33,7 @@ const Signup = async (req, res) => {
 }
 
 const Login = async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     const { email, password } = req.body;
     if (!email || !password) {
 
@@ -44,9 +41,12 @@ const Login = async (req, res) => {
     }
     const user = await UserModel.findOne({ email })
     if (!user) {
-        res.status(400).json({ msg: 'User does not exist' });
+<
+        res.status(400).json({ message: 'User does not exist' });
 
+       
     }
+   
     const hash = user.password
     bcrypt.compare(password, hash, function (err, result) {
         if (result) {
