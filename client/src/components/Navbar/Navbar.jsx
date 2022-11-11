@@ -43,7 +43,7 @@ export const Navbar = () => {
     }
   }
 
-  console.log(count);
+  // console.log(count);
 
   return (
     <div className="mainNavbar">

@@ -7,8 +7,6 @@ const initialState = {
     registerUser: [],
     token: ""
 }
-
-
 const reducer = (state = initialState, action) => {
     const { type, payload } = action;
     switch (type) {

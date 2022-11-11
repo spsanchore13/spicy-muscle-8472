@@ -37,6 +37,16 @@ export const getDressesProducts = () => (dispatch) => {
     });
 };
 
+export const deleteProducts = (id) => (dispatch) => {
+
+  dispatch({ type: types.GET_PRODUCTS_REQUEST });
+  return axios.delete(`http://localhost:8080/products/${id}`).then((res) => {
+    dispatch({ type: types.DELETE_PRODUCTS_SUCCESS })
+  }).catch((err) => {
+    dispatch({ type: types.GET_PRODUCTS_FAILURE })
+  })
+}
+
 export const sortProductsApi = (productsData, sort) => (dispatch) => {
   const sortedProducts = productsData.slice();
   if (sort === "latest") {
@@ -48,8 +58,8 @@ export const sortProductsApi = (productsData, sort) => (dispatch) => {
           ? 1
           : -1
         : a.price < b.price
-        ? 1
-        : -1
+          ? 1
+          : -1
     );
   }
   dispatch({

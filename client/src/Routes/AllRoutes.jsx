@@ -8,6 +8,8 @@ import { Navbar } from "../components/Navbar/Navbar";
 import CheckoutPage from "../pages/CheckoutPage";
 import PaymentSuccessPage from "../pages/PaymentSuccessPage";
 import CartPage from "../pages/CartPage";
+import Login from "../pages/Login";
+import AdminPage from "../Admin/AdminPage";
 
 const AllRoutes = () => {
   return (
@@ -17,7 +19,7 @@ const AllRoutes = () => {
         <Route path="/shoes" element={<ProductPage />} />
 
         <Route path="/dresses" element={<DressesPage />} />
-
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="/products/:productId" element={<ProductsDetails />} />
 
         <Route path="/signup" element={<Signup />} />
@@ -27,6 +29,7 @@ const AllRoutes = () => {
         <Route path="/checkout/shipping-address" element={<CheckoutPage />} />
 
         <Route path="/paymentsuccess" element={<PaymentSuccessPage />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
