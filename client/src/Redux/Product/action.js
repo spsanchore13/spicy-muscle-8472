@@ -73,3 +73,4 @@ export const removeSelectedProducts = () => {
     type: types.REMOVE_SELECTED_PRODUCT,
   };
 };
+

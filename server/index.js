@@ -15,18 +15,18 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/auth", routeUser);
+
+
 
 app.get("/", (req, res) => {
   res.send("hello");
 });
 
+app.use("/auth", routeUser)
 app.use("/cart", CartRouter);
 app.use("/checkout", OrderRouter);
-
 app.use("/products", productRouter);
 
-app.use("/auth", routeUser);
 
 app.listen(PORT, async () => {
   try {
