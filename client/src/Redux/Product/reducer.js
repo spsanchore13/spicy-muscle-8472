@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: false,
-        filteredItems: payload.data,
+        filteredItems: payload.products,
         sort: payload.sort,
       };
     default:

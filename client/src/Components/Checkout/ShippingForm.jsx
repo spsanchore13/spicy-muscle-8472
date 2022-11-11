@@ -49,7 +49,7 @@ const ShippingForm = () => {
         amount,
       }
     );
-    console.log(order);
+    // console.log(order);
     const options = {
       key: "rzp_test_3VrwWAP6CbWSsL",
       amount: order.amount,

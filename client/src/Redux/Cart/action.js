@@ -11,7 +11,6 @@ const getCartItems = (userId) => (dispatch) => {
 }
 
 const postCartItems = (item, userId) => (dispatch) => {
-    // console.log(item, userId)
     dispatch({ type: types.POST_CART_ITEMS_REQUEST })
     return axios.post(`http://localhost:8080/cart/${userId}`, item).then((res) => {
         return dispatch({ type: types.POST_CART_ITEMS_SUCCESS })
