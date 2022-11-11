@@ -15,7 +15,8 @@ const OrderSchema = new mongoose.Schema({
             required: true,
             min: [1, 'Quantity Can Not Be Less Then 1.']
         },
-        price: Number
+        price: Number,
+        image: { type: String, required: true }
     }],
     bill: {
         type: Number,

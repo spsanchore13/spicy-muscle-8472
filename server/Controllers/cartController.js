@@ -24,8 +24,7 @@ const add_cart_item = async (req, res) => {
 
 
 
-    const product = req.body.items;
-
+    // const product = req.body.items;
 
     const productId = req.body.productId;
     const quantity = req.body.quantity;
