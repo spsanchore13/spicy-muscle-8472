@@ -1,18 +1,4 @@
-import {
-  Box,
-  Center,
-  Heading,
-  Text,
-  Wrap,
-  WrapItem,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Flex,
-  Spacer,
-  MenuDivider,
-} from "@chakra-ui/react";
+import { Center, Wrap, WrapItem } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
 
@@ -20,7 +6,7 @@ import React from "react";
 
 const Productheader = () => {
   return (
-    <Center margin='auto'>
+    <Center margin="auto">
       <Wrap mt={10} marginBottom="1rem">
         <WrapItem>
           <Center w="170px" h="80px" bg="red.200">
@@ -34,7 +20,7 @@ const Productheader = () => {
         </WrapItem>
         <WrapItem>
           <Center w="170px" h="80px" bg="tomato">
-            <Link to="/products">BIRKENSTOCK CLASSICS</Link>
+            <Link to="/products">Heels & Wedges</Link>
           </Center>
         </WrapItem>
         <WrapItem>
@@ -53,7 +39,6 @@ const Productheader = () => {
           </Center>
         </WrapItem>
       </Wrap>
-     
     </Center>
   );
 };
