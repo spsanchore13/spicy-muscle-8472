@@ -54,8 +54,9 @@ const ShoesProductsInfo = ({ item, location }) => {
               src={img ? item.images[0].image : item.images[1].image}
               alt="image"
             />
-          </Link>
+         
           <p style={{ margin: "auto", alignItems: "center" }}>{item.name} </p>
+          </Link>
           <div
             style={{
               display: "flex",
@@ -65,6 +66,7 @@ const ShoesProductsInfo = ({ item, location }) => {
             }}
           >
             <p>${item.price}</p>
+            
             <div
               onClick={onOpen}
               className={styles.quick}
@@ -102,7 +104,7 @@ const ShoesProductsInfo = ({ item, location }) => {
               <Button colorScheme="blue" mr={3} onClick={onClose}>
                 Add to Basket
               </Button>
-              <Button variant="ghost">View full details</Button>
+              <Link to={`/products/${item._id}`}><Button variant="ghost">View full details</Button></Link>
             </ModalFooter>
           </ModalContent>
         </Modal>
