@@ -6,8 +6,11 @@ const get_cart_items = async (req, res) => {
     const userId = req.params.id;
     try {
         let cart = await CartModel.findOne({ userId });
+        // console.log(cart);
+
         if (cart && cart.items.length > 0) {
             res.send(cart);
+    
         }
         else {
             res.send(null);

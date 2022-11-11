@@ -32,7 +32,7 @@ const shoeProducts = async (req, res) => {
 
 const dressesProducts = async (req, res) => {
   const dresses = await ProductModel.find({ type: "dresses" });
-  console.log(dresses);
+  // console.log(dresses);
   res.send(dresses);
 };
 
