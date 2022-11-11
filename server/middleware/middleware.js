@@ -25,3 +25,8 @@ const authorisation = (permittedrole) => {
         }
     }
 }
+
+module.exports = {
+    authentication,
+    authorisation
+}
