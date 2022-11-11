@@ -16,9 +16,9 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../styles/DressesInfo.module.css";
+import styles from "../styles/ShoesProductsInfo.module.css";
 
-const DressesInfo = ({item}) => {
+const ShoesProductsInfo = ({ item, location }) => {
   const navigate = useNavigate();
   const [img, setImg] = useState(true);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -111,4 +111,4 @@ const DressesInfo = ({item}) => {
   );
 };
 
-export default DressesInfo;
+export default ShoesProductsInfo;

@@ -1,4 +1,6 @@
 
+import "./App.css";
+import AllRoutes from "./Routes/AllRoutes";
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home/Home';
@@ -17,27 +19,12 @@ import ProductsDetails from "./pages/ProductsDetailsPage";
 import Signup from "./pages/Signup";
 
 
+
 function App() {
   return (
-
-    <div>
-      <Navbar/>
-
-      <Routes>
-      <Route exact path="/" element={<Home/>}/>
-      </Routes>
-     
-
     <div className="App">
-      <Routes>
-        <Route path="/products" element={<ProductPage />} />
-
-        <Route path="/products/:productId" element={<ProductsDetails />} />
-
-        <Route path="/signup" element={<Signup />} />
-
-
-      </Routes>
+          <Navbar/>
+      <AllRoutes />
     </div>
   );
 }

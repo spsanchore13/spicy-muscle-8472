@@ -23,9 +23,8 @@ import {
   FiSettings,
   FiMenu,
 } from "react-icons/fi";
-import { IconType } from "react-icons";
-import { ReactText } from "react";
-import Productheader from "./Productheader";
+
+
 
 const LinkItems = [
   { name: "Shoes",icon: FiStar, Link: "/products" },
