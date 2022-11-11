@@ -12,6 +12,12 @@ const getProductsById = async (req, res) => {
   res.send(product);
 };
 
+const deleteProducts = async (req, res) => {
+  const id = req.params.id
+  console.log(id)
+  await ProductModel.deleteOne({ _id: id })
+  res.send("deleted")
+}
 const shoeProducts = async (req, res) => {
   // const page = Number(req.query.pageNumber) || 1;
   // const pageSize = Number(req.query.pageSize) || 10;
@@ -25,7 +31,7 @@ const shoeProducts = async (req, res) => {
   //   : {};
   // const count = await ProductModel.countDocuments({ ...keyword });
 
-  const shoes = await ProductModel.find({ type: "shoes"});
+  const shoes = await ProductModel.find({ type: "shoes" });
   // console.log({ shoes, page, pages: Math.ceil(count / pageSize) });
   res.json(shoes);
 };
@@ -65,5 +71,6 @@ module.exports = {
   getProductsById,
   shoeProducts,
   dressesProducts,
-  searchNameApi
+  searchNameApi,
+  deleteProducts
 };
