@@ -23,5 +23,21 @@ const reducer = (state = initialState, action) => {
     }
 }
 
+const selectedReducers = (state = {}, { type, payload }) => {
+    switch (type) {
+      case types.SELECTED_PRODUCT: {
+        return {
+          ...state,
+          ...payload,
+        };
+      }
+      case types.REMOVE_SELECTED_PRODUCT: {
+        return {};
+      }
+      default:
+        return state;
+    }
+  };
 
-export { reducer }
+
+export { reducer,selectedReducers  }

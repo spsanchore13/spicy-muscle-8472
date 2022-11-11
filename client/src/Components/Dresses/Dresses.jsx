@@ -4,7 +4,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  Flex,
   Spacer,
   MenuDivider,
   Heading,
@@ -13,35 +12,38 @@ import {
   Center,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import ShoesProductsInfo from "./ShoesProductsInfo";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import DressesInfo from "./DressesInfo";
+import { getDressesProducts, getProducts } from "../../Redux/Product/action";
 
-const ShoesProducts = ({ products }) => {
+const Dresses = () => {
+  const params = useParams();
+  // console.log(params)
+
   const [shoes, setShoes] = useState([]);
 
-  const getData = () => {
-    fetch(`http://localhost:3001/shoes`)
-      .then((res) => res.json())
+  const productsData = useSelector((state) => state.ProductReducer.products);
+  console.log(productsData);
 
-      .then((res) => setShoes(res));
-    //   console.log(res)
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getData();
-  }, [products]);
-
-  useEffect(() => {
-    console.log("Shoes: ", shoes);
-  }, [shoes]);
-  console.log(shoes);
+    // const getProductsParams = {
+    //   params: {
+    //     type: "dresses",
+    //   },
+    // };
+    dispatch(getDressesProducts());
+  }, []);
 
   return (
     <Box>
       <Center>
         <Box>
           <Heading as="h4" size="md">
-            Womens's Shoe
+            Womens's Dresses
           </Heading>
           <Text>{}</Text>
         </Box>
@@ -52,6 +54,8 @@ const ShoesProducts = ({ products }) => {
             <MenuButton
               px={4}
               py={2}
+              marginBottom="1rem"
+              marginRight="10px"
               marginLeft="10px"
               transition="all 0.2s"
               borderRadius="md"
@@ -68,34 +72,28 @@ const ShoesProducts = ({ products }) => {
               <MenuItem> price High to Low</MenuItem>
               <MenuItem>A-Z</MenuItem>
               <MenuItem>Z-A</MenuItem>
-              <MenuItem>Bestselling</MenuItem>
-              <MenuDivider />
               <MenuItem>Newest</MenuItem>
-              <MenuItem>Bestselling</MenuItem>
+              <MenuDivider />
             </MenuList>
           </Menu>
         </Box>
       </Center>
 
-      <SimpleGrid columns={[1, 2, 3]} gap={5}
-      
-        // style={{
-        //   display: "grid",
-        //   gridTemplateColumns: "repeat(4, 1fr)",
-        //   gap: "20px",
-        //   marginTop: "40px",
-        //   marginRight: "40px",
-        // }}
-      >
-        {shoes.map((item) => {
-          console.log(item);
-          return (
-            <ShoesProductsInfo key={item.id} item={item} location={products} />
-          );
-        })}
+      <SimpleGrid columns={[1, 2, 3]} gap={5}>
+        {productsData &&
+          productsData.map((item) => {
+            // console.log(item);
+            return (
+              <DressesInfo
+                key={item.id}
+                item={item}
+                // location={products}
+              />
+            );
+          })}
       </SimpleGrid>
     </Box>
   );
 };
 
-export default ShoesProducts;
+export default Dresses;
