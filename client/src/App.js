@@ -1,4 +1,7 @@
 
+import "./App.css";
+
+import Login from "./pages/Login";
 
 import AllRoutes from "./Routes/AllRoutes";
 
@@ -13,8 +16,10 @@ import {Navbar} from './components/Navbar/Navbar';
 
 
 
+
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+
 import ProductPage from "./pages/ProductPage";
 
 import ProductsDetails from "./pages/ProductsDetailsPage";
@@ -47,8 +52,11 @@ function App() {
       </Routes>
 
     <div className="App">
-          <Navbar/>
+
+    
+      <Navbar/>
       <AllRoutes />
+
 
     </div>
     </div>
