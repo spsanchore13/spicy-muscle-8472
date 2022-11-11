@@ -49,7 +49,7 @@ const ShippingForm = () => {
         amount,
       }
     );
-    console.log(order);
+
     const options = {
       key: "rzp_test_3VrwWAP6CbWSsL",
       amount: order.amount,
@@ -59,7 +59,8 @@ const ShippingForm = () => {
       image:
         "https://media-exp1.licdn.com/dms/image/D4D03AQG-maywhM50mw/profile-displayphoto-shrink_400_400/0/1666174115805?e=1673481600&v=beta&t=tkIpIyaKve2gY4LUdGPqzCv_rSqnBpYu0oxUcN6xLLw",
       order_id: order.id,
-      callback_url: "http://localhost:8080/checkout/paymentverification",
+      callback_url:
+        "http://localhost:8080/checkout/order/636ccf3ff2b55f7b5ac1f105/paymentverification",
       prefill: {
         name: "Shantilal Patliya",
         email: "shantilalpatliya18@gmail.com",
