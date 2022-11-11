@@ -41,12 +41,12 @@ const Login = async (req, res) => {
     }
     const user = await UserModel.findOne({ email })
     if (!user) {
-<
+
         res.status(400).json({ message: 'User does not exist' });
 
-       
+
     }
-   
+
     const hash = user.password
     bcrypt.compare(password, hash, function (err, result) {
         if (result) {
