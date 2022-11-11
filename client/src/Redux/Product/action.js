@@ -10,3 +10,11 @@ const getProducts = () => (dispatch) => {
         dispatch({ type: types.GET_PRODUCTS_FAILURE, payload: err })
     })
 }
+
+const deleteProducts = () => dispatch => {
+
+}
+const updateProducts=()=>dispatch=>{
+
+}
+export { getProducts, deleteProducts,updateProducts }
