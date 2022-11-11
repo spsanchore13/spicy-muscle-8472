@@ -1,4 +1,5 @@
-const Order = require('../Models/order.model');
+
+const OrderModel = require('../Models/order.model');
 const CartModal = require('../Models/cart.model');
 const PaymentModel = require('../Models/payment.model')
 const Razorpay = require('razorpay');
@@ -20,7 +21,7 @@ const checkout = async (req, res) => {
 
     const userId = req.params.id;
     // console.log(userId)
-    req.body.userId = userId;
+    // req.body.userId = userId;
 
 
     const options = {
@@ -37,7 +38,8 @@ const checkout = async (req, res) => {
 }
 
 const paymentVerification = async (req, res) => {
-    console.log(req.body)
+
+    const userId = req.params.id;
 
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
         req.body;
@@ -55,6 +57,31 @@ const paymentVerification = async (req, res) => {
 
     if (isAuthentic) {
         // Database comes here
+        const order = await CartModal.find({ userId: userId })
+        console.log(order)
+
+        // let items;
+        // let bill;
+        // order.map((p) => {
+        //     items = p.items;
+        //     bill = p.bill;
+        // })
+
+        // console.log(items, bill);
+
+        const productId = items.productId;
+
+        const name = items.name;
+        const quantity = items.quantity;
+        const price = items.price;
+        const image = items.image;
+
+        // await OrderModel.create({
+        //     userId,
+        //     items: [{ productId, name, quantity, price, image }],
+        //     bill
+        // })
+
 
         await PaymentModel.create({
             razorpay_order_id,

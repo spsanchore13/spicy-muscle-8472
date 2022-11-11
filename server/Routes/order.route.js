@@ -4,6 +4,6 @@ const OrderRouter = Router();
 
 OrderRouter.get('/order/:id', orderController.get_orders);
 OrderRouter.post('/order/:id', orderController.checkout);
-OrderRouter.post("/paymentverification", orderController.paymentVerification)
+OrderRouter.post("/order/:id/paymentverification", orderController.paymentVerification)
 
 module.exports = OrderRouter;
