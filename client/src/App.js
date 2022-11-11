@@ -1,7 +1,11 @@
 
+
+import AllRoutes from "./Routes/AllRoutes";
+
 import Home from './components/Home/Home';
 import Home2 from './components/Home2/Home2';
 import {Navbar} from './components/Navbar/Navbar';
+
 
 
 
@@ -22,6 +26,7 @@ import Signup from "./pages/Signup";
 function App() {
   return (
 
+
     
      
 
@@ -40,6 +45,12 @@ function App() {
         <Route path="/signup" element={<Signup />} />
 
       </Routes>
+
+    <div className="App">
+          <Navbar/>
+      <AllRoutes />
+
+    </div>
     </div>
   );
 }

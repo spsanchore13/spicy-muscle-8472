@@ -12,12 +12,14 @@ import {
   Center,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import ShoesProductsInfo from "./ShoesProductsInfo";
+import ShoesProductsInfo from "../Shoes/ShoesProductsInfo";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../Redux/Product/action";
+import { getProducts, getShoesProducts } from "../../Redux/Product/action";
+import { useParams } from "react-router-dom";
 
 const ShoesProducts = ({ products }) => {
+  const params = useParams();
 
   const [shoes, setShoes] = useState([]);
 
@@ -33,7 +35,7 @@ const ShoesProducts = ({ products }) => {
         type: "shoes",
       },
     };
-    dispatch(getProducts(getProductsParams));
+    dispatch(getShoesProducts());
   }, []);
 
   
@@ -100,8 +102,8 @@ const ShoesProducts = ({ products }) => {
         columns={[1, 2, 3]}
         gap={5}
       >
-        {productsData && productsData.map((item) => {
-          console.log(item);
+        {productsData && productsData.shoes.map((item) => {
+          // console.log(item);
           return (
             <ShoesProductsInfo key={item.id} item={item} location={products} />
           );
