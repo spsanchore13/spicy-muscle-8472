@@ -1,0 +1,160 @@
+.apnahr {
+  width: 10%;
+  margin-left: 0px;
+}
+.maindiv {
+  margin-left: 30px;
+  width: 25%;
+}
+.firstp {
+  font-style: normal;
+  letter-spacing: 0.6px;
+  line-height: 19.5px;
+  font-size: 13px;
+  font-family: "Avenir Book", sans-serif;
+  font-weight: 400;
+  color: #26262c;
+  margin-bottom: 10px;
+}
+.atag {
+  display: flex;
+  flex-direction: column;
+}
+.atag > a {
+  letter-spacing: 0.6px;
+  line-height: 19.5px;
+  font-size: 12px;
+  font-family: "Avenir Book", sans-serif;
+  font-weight: 400;
+  color: #26262c;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-style: normal;
+}
+.atag > a:hover {
+  text-decoration: underline;
+}
+.acd {
+  width: 15%;
+}
+.pricetag {
+  border: none;
+}
+.btdiv > button {
+  width: 180px;
+  padding-left: 0px;
+  margin-bottom: 10px;
+  height: 35px;
+  border: none;
+  background-color: white;
+}
+.btdiv > button > a {
+  color: #26262c;
+  letter-spacing: 0.6px;
+  line-height: 19.5px;
+  font-size: 12px;
+  font-family: "Avenir Book", sans-serif;
+  font-weight: 400;
+  color: #26262c;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-style: normal;
+}
+.btdiv > button:hover {
+  border: 1px solid #2689cb;
+}
+.btdiv > button > a:hover {
+  color: #2689cb;
+}
+
+.btdiv3 > button {
+  width: 180px;
+  padding-left: 0px;
+  margin-bottom: 10px;
+  height: 35px;
+  border: none;
+  background-color: white;
+}
+.btdiv3 > button > a {
+  color: #26262c;
+  letter-spacing: 0.6px;
+  line-height: 19.5px;
+  font-size: 12px;
+  font-family: "Avenir Book", sans-serif;
+  font-weight: 400;
+  color: #26262c;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-style: normal;
+}
+.btdiv3 > button:hover {
+  border: 1px solid #2689cb;
+}
+.btdiv3 > button > a:hover {
+  color: #2689cb;
+}
+
+.btdiv2 {
+  height: 200px;
+  width: 190px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.btdiv2 > button {
+  width: 180px;
+  padding-left: 0px;
+  margin-bottom: 10px;
+  height: 35px;
+  border: none;
+  background-color: white;
+}
+.btdiv2 > button > a {
+  color: #26262c;
+
+  letter-spacing: 0.6px;
+  line-height: 19.5px;
+  font-size: 12px;
+  font-family: "Avenir Book", sans-serif;
+  font-weight: 400;
+  color: #26262c;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-style: normal;
+}
+.btdiv2 > button:hover {
+  border: 1px solid #2689cb;
+}
+.btdiv2 > button > a:hover {
+  color: #2689cb;
+}
+
+.btdiv4 > button {
+  width: 180px;
+  padding-left: 0px;
+  margin-bottom: 10px;
+  height: 35px;
+  border: none;
+  background-color: white;
+}
+.btdiv4 > button > a {
+  color: #26262c;
+
+  letter-spacing: 0.6px;
+  line-height: 19.5px;
+  font-size: 12px;
+  font-family: "Avenir Book", sans-serif;
+  font-weight: 400;
+  color: #26262c;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-style: normal;
+}
+/* .btdiv4>button:hover{
+    border:1px solid #2689cb;
+} */
+.btdiv4 > button > a:hover {
+  color: #2689cb;
+}
+.accordion-button collapsed {
+}
