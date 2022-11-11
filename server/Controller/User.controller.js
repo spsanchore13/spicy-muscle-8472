@@ -5,9 +5,15 @@ const { UserModel } = require("../Model/User.model");
 const Signup = async (req, res) => {
     const { email, password, name, username, mobile } = req.body;
     if (!email || !password || !name || !username || !mobile) {
+
+        res.status(400).json({ message: 'Please enter all fields' });
+    }
+    const userId = await UserModel.findOne({ email })
+
         res.status(400).json({ msg: 'Please enter all fields' });
     }
     const userId = await UserModel.findOne({ email: email })
+
     if (userId) {
         res.status(400).send({ "message": "User already exists" })
     } else {
@@ -15,6 +21,7 @@ const Signup = async (req, res) => {
             if (err) {
                 res.status(500).send({ "message": "something went wrong. please sign up again" })
             }
+
             const user_data = new UserModel({
                 email: email,
                 password: hash,
@@ -29,13 +36,22 @@ const Signup = async (req, res) => {
 
 }
 const Login = async (req, res) => {
+    console.log(req.body)
     const { email, password } = req.body;
     if (!email || !password) {
+
+        res.status(400).json({ message: 'Please enter all fields' });
+    }
+    const user = await UserModel.findOne({ email })
+    if (!user) {
+        res.status(400).json({ message: 'User does not exist' });
+
         res.status(400).json({ msg: 'Please enter all fields' });
     }
     const user = await UserModel.findOne({ email })
     if (!user) {
         res.status(400).json({ msg: 'User does not exist' });
+
     }
     const hash = user.password
     bcrypt.compare(password, hash, function (err, result) {
