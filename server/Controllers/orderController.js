@@ -2,6 +2,8 @@ const Order = require('../Models/order.model');
 const CartModal = require('../Models/cart.model');
 const PaymentModel = require('../Models/payment.model')
 const Razorpay = require('razorpay');
+const crypto = require('crypto')
+require('dotenv').config()
 
 const instance = new Razorpay({
     key_id: process.env.RAZORPAY_API_KEY,
@@ -20,58 +22,59 @@ const checkout = async (req, res) => {
     // console.log(userId)
     req.body.userId = userId;
 
-    try {
-        const options = {
-            amount: Number(req.body.amount * 100),
-            currency: "INR",
-        };
-        const order = await instance.orders.create(options)
 
-    }
-    catch (err) {
-        res.status(200).send({
-            success: true,
-            order,
-        });
-    }
+    const options = {
+        amount: Number(req.body.amount * 100),
+        currency: "INR",
+    };
+    const order = await instance.orders.create(options)
+
+    res.status(200).send({
+        success: true,
+        order,
+    });
+
 }
 
 const paymentVerification = async (req, res) => {
-
     console.log(req.body)
-    try {
-        const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
-            req.body;
 
-        const body = razorpay_order_id + "|" + razorpay_payment_id;
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
+        req.body;
 
-        const expectedSignature = crypto
-            .createHmac("sha256", process.env.RAZORPAY_APT_SECRET)
-            .update(body.toString())
-            .digest("hex");
 
-        const isAuthentic = expectedSignature === razorpay_signature;
 
-        if (isAuthentic) {
-            // Database comes here
+    const body = razorpay_order_id + "|" + razorpay_payment_id;
 
-            await Payment.create({
-                razorpay_order_id,
-                razorpay_payment_id,
-                razorpay_signature,
-            });
+    const expectedSignature = crypto
+        .createHmac("sha256", process.env.RAZORPAY_SECRET_KEY)
+        .update(body.toString())
+        .digest("hex");
 
-            res.redirect(
-                `http://localhost:8080/paymentsuccess?reference=${razorpay_payment_id}`
-            );
-        }
+    const isAuthentic = expectedSignature === razorpay_signature;
 
+    if (isAuthentic) {
+        // Database comes here
+
+        await PaymentModel.create({
+            razorpay_order_id,
+            razorpay_payment_id,
+            razorpay_signature,
+        });
+
+        res.redirect(
+            `http://localhost:3000/paymentsuccess?reference=${razorpay_payment_id}`
+        );
     }
-    catch (err) {
+    else {
         res.status(400).json({
             success: false,
         });
     }
+
+
+
+
 };
 
 
