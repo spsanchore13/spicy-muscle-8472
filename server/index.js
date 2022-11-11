@@ -17,22 +17,12 @@ app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/auth", routeUser)
-
 app.get("/", (req, res) => {
-    res.send("hello")
+  res.send("hello")
 })
-
 app.use("/cart", CartRouter)
 app.use("/checkout", OrderRouter)
-
-
-const app = express();
-app.use(express.json());
-app.use(cors());
-
 app.use("/products", productRouter);
-
 app.use("/auth", routeUser);
 
 
