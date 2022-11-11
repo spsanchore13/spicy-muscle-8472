@@ -1,113 +1,93 @@
-import {
-  Box,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Spacer,
-  MenuDivider,
-  Heading,
-  Text,
-  SimpleGrid,
-  Center,
-} from "@chakra-ui/react";
+import { Box, Spacer, Heading, Text, SimpleGrid, Flex } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import ShoesProductsInfo from "../Shoes/ShoesProductsInfo";
-import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts, getShoesProducts } from "../../Redux/Product/action";
+import { getShoesProducts } from "../../Redux/Product/action";
 import { useParams } from "react-router-dom";
+import SearchBar from "../SearchBar";
+import Filter from "../Dresses/Filter";
 
 const ShoesProducts = ({ products }) => {
   const params = useParams();
-
   const [shoes, setShoes] = useState([]);
 
-
-  const productsData = useSelector((state) => state.ProductReducer.products);
+  const productsData = useSelector(
+    (state) => state.ProductReducer.filteredItems
+  );
   console.log(productsData);
 
   const dispatch = useDispatch();
 
+  const [list, setList] = useState(productsData);
+  const [resultsFound, setResultsFound] = useState(true);
+  const [searchInput, setSearchInput] = useState("");
+
+  const applyFilters = () => {
+    let updatedList = productsData;
+
+    if (searchInput) {
+      console.log(searchInput);
+      updatedList = updatedList.filter(
+        (item) =>
+          item.name.toLowerCase().search(searchInput.toLowerCase().trim()) !==
+          -1
+      );
+    }
+    setList(updatedList);
+
+    !updatedList ? setResultsFound(false) : setResultsFound(true);
+  };
+
   useEffect(() => {
-    const getProductsParams = {
-      params: {
-        type: "shoes",
-      },
-    };
+    applyFilters();
+  }, [searchInput]);
+
+  useEffect(() => {
+    // const getProductsParams = {
+    //   params: {
+    //     type: "shoes",
+    //   },
+    // };
     dispatch(getShoesProducts());
   }, []);
 
-  
-
-  // const getData = () => {
-  //   fetch(`http://localhost:3001/shoes`)
-  //     .then((res) => res.json())
-
-  //     .then((res) => setShoes(res));
-  //   //   console.log(res)
-  // };
-
-  // useEffect(() => {
-  //   getProducts();
-  // }, [products]);
-
-  // useEffect(() => {
-  //   console.log("Shoes: ", shoes);
-  // }, [shoes]);
-  // console.log(shoes);
-
   return (
     <Box>
-      <Center>
-        <Box>
+      <Flex spacing="20px" marginBottom={4} width="70%" marginLeft={37}>
+        <Box direction={["column", "row"]}>
           <Heading as="h4" size="md">
-            Womens's Shoe
+            Womens's Shoes
           </Heading>
-          <Text>{}</Text>
         </Box>
         <Spacer />
-        <Box>
-          Sort :
-          <Menu >
-            <MenuButton
-              px={4}
-              py={2}
-              marginBottom="1rem"
-              marginRight="10px"
-              marginLeft="10px"
-              transition="all 0.2s"
-              borderRadius="md"
-              borderWidth="1px"
-              _hover={{ bg: "gray.400" }}
-              _expanded={{ bg: "blue.400" }}
-              _focus={{ boxShadow: "outline" }}
-            >
-              Featured
-              <ChevronDownIcon />
-            </MenuButton>
-            <MenuList>
-              <MenuItem>Price : Low to High</MenuItem>
-              <MenuItem> price High to Low</MenuItem>
-              <MenuItem>A-Z</MenuItem>
-              <MenuItem>Z-A</MenuItem>
-              <MenuItem>Newest</MenuItem>
-              <MenuDivider />
-            </MenuList>
-          </Menu>
+        <Box direction={["column", "row"]}>
+          <Text>{productsData?.length} Products</Text>
         </Box>
-      </Center>
+        <Spacer />
+        <Box direction={["column", "row"]}>
+          <SearchBar
+            value={searchInput}
+            changeInput={(e) => setSearchInput(e.target.value)}
+          />
+        </Box>
+        <Spacer />
+        <Box marginLeft="10px" direction={["column", "row"]}>
+          <Filter></Filter>
+        </Box>
+      </Flex>
 
-      <SimpleGrid
-        columns={[1, 2, 3]}
-        gap={5}
-      >
-        {productsData && productsData.shoes.map((item) => {
-          // console.log(item);
-          return (
-            <ShoesProductsInfo key={item.id} item={item} location={products} />
-          );
-        })}
+      <SimpleGrid columns={[1, 2, 3]} gap={5}>
+        {productsData &&
+          productsData.map((item) => {
+            // console.log(item);
+            return (
+              <ShoesProductsInfo
+                key={item.id}
+                item={item}
+                location={products}
+              />
+            );
+          })}
       </SimpleGrid>
     </Box>
   );

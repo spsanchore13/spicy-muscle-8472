@@ -18,7 +18,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../styles/DressesInfo.module.css";
 
-const DressesInfo = ({item}) => {
+const DressesInfo = ({ item }) => {
   const navigate = useNavigate();
   const [img, setImg] = useState(true);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -54,8 +54,9 @@ const DressesInfo = ({item}) => {
               src={img ? item.images[0].image : item.images[1].image}
               alt="image"
             />
+
+            <p style={{ margin: "auto", alignItems: "center" }}>{item.name} </p>
           </Link>
-          <p style={{ margin: "auto", alignItems: "center" }}>{item.name} </p>
           <div
             style={{
               display: "flex",
@@ -102,7 +103,9 @@ const DressesInfo = ({item}) => {
               <Button colorScheme="blue" mr={3} onClick={onClose}>
                 Add to Basket
               </Button>
-              <Button variant="ghost">View full details</Button>
+              <Link to={`/products/${item._id}`}>
+                <Button variant="ghost">View full details</Button>
+              </Link>
             </ModalFooter>
           </ModalContent>
         </Modal>
