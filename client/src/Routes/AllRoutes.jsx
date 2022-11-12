@@ -16,8 +16,8 @@ import AdminPage from "../Admin/AdminPage";
 const AllRoutes = () => {
   return (
     
-    <Routes>
-      <Navbar />
+    <>
+      {/* <Navbar /> */}
       
       
       <Routes>
@@ -41,7 +41,7 @@ const AllRoutes = () => {
         <Route path="/paymentsuccess" element={<PaymentSuccessPage />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-    </Routes>
+    </>
   );
 };
 

@@ -61,12 +61,12 @@ export const Navbar = () => {
       </div>
       <div className="navMid">
         <div className="midLeft">
-          <Link className="homeicon" to="/">
+          {/* <Link className="homeicon" to="/">
             BETTERMART
-          </Link>
-          <Link className="homeicon" to="/home2">
+          </Link> */}
+          {/* <Link className="homeicon" to="/home2">
             BETTERLivinghome
-          </Link>
+          </Link> */}
         </div>
         <div className="midRight">
           <div className="midSearch">

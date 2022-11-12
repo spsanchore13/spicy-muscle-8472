@@ -55,8 +55,6 @@ const Home2 = () => {
                 <img className="div3-img" src="https://images.urbndata.com/is/image/Anthropologie/4110095140044_065_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349" alt="" />
                 <img className="div3-img" src="https://images.urbndata.com/is/image/Anthropologie/4112522160102_038_b2?$an-category$&fit=constrain&fmt=webp&hei=523&qlt=80&wid=349" alt="" /> 
 
-              
-
             </div>
 
             <p className="para2">More to Explore</p>

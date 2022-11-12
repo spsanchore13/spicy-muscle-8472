@@ -5,7 +5,7 @@
 }
 .navTop{
     display: flex;
-    justify-content: end;
+    /* justify-content: end; */
     background-color: whitesmoke;
     gap: 10px;
     height: 2rem;
