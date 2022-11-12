@@ -96,3 +96,10 @@ justify-content: space-between;
 .div5 {
     margin: 5%;
 }
+ @media screen and (min-width: 375px) {
+    .div1 {
+      display:flex;
+    }
+  
+  } 
+ 
