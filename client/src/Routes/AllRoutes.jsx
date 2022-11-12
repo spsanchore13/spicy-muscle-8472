@@ -7,6 +7,7 @@ import Signup from "../pages/Signup";
 import CheckoutPage from "../pages/CheckoutPage";
 import PaymentSuccessPage from "../pages/PaymentSuccessPage";
 import CartPage from "../pages/CartPage";
+import HomePage from "../pages/HomePage";
 import Login from "../pages/Login";
 import AdminPage from "../Admin/AdminPage";
 
