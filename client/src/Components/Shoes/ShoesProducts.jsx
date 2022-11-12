@@ -15,6 +15,7 @@ import { getShoesProducts } from "../../Redux/Product/action";
 import { useParams } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import Filter from "../Dresses/Filter";
+import Spinner from "../Spinner/Spinner"
 
 const ShoesProducts = ({ products }) => {
   const params = useParams();
@@ -37,11 +38,11 @@ const ShoesProducts = ({ products }) => {
   const productsPerPage = 12;
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentpages = productsData.slice(
+  const currentpages = productsData?.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
-  const pageCount = Math.ceil(productsData.length / productsPerPage);
+  const pageCount = Math.ceil(productsData?.length / productsPerPage);
 
   let pageNumberArray = [];
   for (let i = 0; i < pageCount; i++) {
@@ -53,30 +54,6 @@ const ShoesProducts = ({ products }) => {
       </Box>
     );
   }
-
-  // const [list, setList] = useState(productsData);
-  // const [resultsFound, setResultsFound] = useState(true);
-  // const [searchInput, setSearchInput] = useState("");
-
-  // const applyFilters = () => {
-  //   let updatedList = productsData;
-
-  //   if (searchInput) {
-  //     console.log(searchInput);
-  //     updatedList = updatedList.filter(
-  //       (item) =>
-  //         item.name.toLowerCase().search(searchInput.toLowerCase().trim()) !==
-  //         -1
-  //     );
-  //   }
-  //   setList(updatedList);
-
-  //   !updatedList ? setResultsFound(false) : setResultsFound(true);
-  // };
-
-  // useEffect(() => {
-  //   applyFilters();
-  // }, [searchInput]);
 
   return (
     <Box>
@@ -134,20 +111,23 @@ const ShoesProducts = ({ products }) => {
           <Filter></Filter>
         </Box>
       </Flex>
-
-      <SimpleGrid columns={[1, 1,  2, 3]} gap={5}>
-        {currentpages &&
-          currentpages.map((item) => {
-            // console.log(item);
-            return (
-              <ShoesProductsInfo
-                key={item.id}
-                item={item}
-                location={products}
-              />
-            );
-          })}
-      </SimpleGrid>
+      {productsData?.length === 0 ? (
+        <Spinner/>
+      ) : (
+        <SimpleGrid columns={[1, 1, 2, 3]} gap={5}>
+          {currentpages &&
+            currentpages?.map((item) => {
+              // console.log(item);
+              return (
+                <ShoesProductsInfo
+                  key={item.id}
+                  item={item}
+                  location={products}
+                />
+              );
+            })}
+        </SimpleGrid>
+      )}
     </Box>
   );
 };
