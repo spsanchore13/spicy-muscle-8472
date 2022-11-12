@@ -7,15 +7,16 @@ import Signup from "../pages/Signup";
 import CheckoutPage from "../pages/CheckoutPage";
 import PaymentSuccessPage from "../pages/PaymentSuccessPage";
 import CartPage from "../pages/CartPage";
+import HomePage from "../pages/HomePage";
 import Login from "../pages/Login";
 import AdminPage from "../Admin/AdminPage";
 
 const AllRoutes = () => {
   return (
     <>
-      {/* <Navbar /> */}
-
       <Routes>
+        <Route path="/" element={<HomePage />} />
+
         <Route path="/shoes" element={<ProductPage />} />
         <Route path="/dresses" element={<DressesPage />} />
         <Route path="/admin" element={<AdminPage />} />

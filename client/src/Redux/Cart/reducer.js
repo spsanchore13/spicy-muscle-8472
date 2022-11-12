@@ -16,7 +16,7 @@ const reducer = (state = initialState, action) => {
             return { ...state, isLoading: true }
         case types.GET_CART_ITEMS_SUCCESS:
             return { ...state, isLoading: false, items: payload }
-            
+
         case types.GET_CART_ITEMS_FAILURE:
             return { ...state, isLoading: false, isError: true, error: payload }
         default:
