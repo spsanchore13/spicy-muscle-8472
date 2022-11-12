@@ -28,7 +28,7 @@ const ProductsDetails = () => {
   const dispatch = useDispatch();
 
   const product = useSelector((state) => state.product);
-  console.log(product);
+  // console.log(product);
 
   const item = {
     productId: product[0]?._id,
@@ -43,7 +43,7 @@ const ProductsDetails = () => {
   const { productId } = useParams();
 
   const addProducts = (item, userId) => {
-    console.log(item);
+    // console.log(item);
     dispatch(postCartItems(item, userId))
       .then((res) => {
         console.log(res);

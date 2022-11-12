@@ -8,12 +8,12 @@ const Filter = (props) => {
   const dispatch = useDispatch();
 
   const productsData = useSelector((state) => state.ProductReducer.products);
-  console.log(productsData);
+  // console.log(productsData);
 
   const filteredProducts = useSelector(
     (state) => state.ProductReducer.filteredItems
   );
-  console.log(filteredProducts);
+  // console.log(filteredProducts);
 
   // const size = useSelector((state) => state.products.size);
   // console.log(size);

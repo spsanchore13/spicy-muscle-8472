@@ -6,6 +6,7 @@ const {
   dressesProducts,
   subCategory,
   searchNameApi,
+  deleteProducts,
 } = require("../Controller/Products.controller");
 
 const productRouter = Router();
@@ -19,6 +20,8 @@ productRouter.get("/dresses", dressesProducts);
 productRouter.get("/search:name", searchNameApi)
 
 productRouter.get("/:id", getProductsById);
+
+productRouter.delete("/:id", deleteProducts)
 
 
 module.exports = { productRouter };

@@ -37,6 +37,17 @@ export const getDressesProducts = () => (dispatch) => {
     });
 };
 
+export const deleteProducts = (id) => (dispatch) => {
+
+  dispatch({ type: types.GET_PRODUCTS_REQUEST });
+  return axios.delete(`http://localhost:8080/products/${id}`).then((res) => {
+    dispatch({ type: types.DELETE_PRODUCTS_SUCCESS })
+  }).catch((err) => {
+    dispatch({ type: types.GET_PRODUCTS_FAILURE })
+  })
+}
+
+
 export const sortProductsApi = (filteredItems, sort) => (dispatch) => {
   const sortedProducts = filteredItems?.slice();
   if (sort === "latest") {
