@@ -69,12 +69,12 @@ const paymentVerification = async (req, res) => {
 
         // console.log(items, bill);
 
-        const productId = items.productId;
+        // const productId = items.productId;
 
-        const name = items.name;
-        const quantity = items.quantity;
-        const price = items.price;
-        const image = items.image;
+        // const name = items.name;
+        // const quantity = items.quantity;
+        // const price = items.price;
+        // const image = items.image;
 
         // await OrderModel.create({
         //     userId,

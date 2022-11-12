@@ -5,10 +5,17 @@ const PaymentSuccessPage = () => {
   const seachQuery = useSearchParams()[0];
 
   const referenceNum = seachQuery.get("reference");
+
+  setTimeout(function () {
+    window.location.replace("/");
+  }, 5000);
+
   return (
     <Box>
       <VStack h="100vh" justifyContent={"center"}>
-        <Heading textTransform={"uppercase"}> Order Successfull</Heading>
+        <Heading textTransform={"uppercase"} color="green">
+          Order Successfull
+        </Heading>
 
         <Text>Reference No.{referenceNum}</Text>
       </VStack>
