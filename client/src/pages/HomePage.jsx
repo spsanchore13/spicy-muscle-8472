@@ -1,11 +1,14 @@
 import {
   Box,
-  Button,
   Divider,
   Heading,
+  HStack,
   Image,
+  Link,
   SimpleGrid,
   Stack,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
 import React from "react";
 
@@ -45,18 +48,29 @@ const HomePage = () => {
 
   const image3 = [
     {
+      text: "shop gift bundles",
+      heading: "new! BUNDLE with JOY",
+      description:
+        "Save time (and $$$) with curated gift sets for everyone on your list.",
       img: "https://images.ctfassets.net/5de70he6op10/4Uq666sNSwxPJkwfkNekwE/229e99ddfcc9ed0f9fb4c1d0d3f63df9/MTE_1.jpg?w=856&q=80&fm=webp",
     },
     {
+      text: "shop fragrance gifts,more",
+      heading: "The Holiday Beauty Shop",
+      description: "Ready, set, let's glow gifting!",
       img: "https://images.ctfassets.net/5de70he6op10/5HxUPMjRhRmYBhDzG7lYb8/8bd8da754c35f286701c479b6fb4885e/LS_MTE_2.jpg?w=856&q=80&fm=webp",
     },
     {
+      text: "shop BHLDN weddings",
+      heading: "THE ART OF THE DRESS",
+      description:
+        "Introducing a lovingly curated collection of sculptural silhouettes, enlightened details, and everlasting impressions.",
       img: "https://images.ctfassets.net/5de70he6op10/673WCOKnBlUgppuS7WBHzB/fba4ac8902af41c13345308297b6c9f5/MTE_3.jpg?w=856&q=80&fm=webp",
     },
   ];
 
   return (
-    <Stack border="1px solid red" w="100%" p={5}>
+    <Stack border="1px solid red" w="100%" px={5}>
       <Box position="relative" py={5}>
         <Image
           w="100%"
@@ -95,17 +109,30 @@ const HomePage = () => {
         ))}
       </SimpleGrid>
       <Stack>
-        <Heading fontSize="2xl" fontWeight="hairline" align="center">
+        <Heading fontSize="2xl" fontWeight="hairline" align="center" mt={10}>
           More to Explore
         </Heading>
-        <Divider colorScheme="black" />
+        <Divider />
         <SimpleGrid columns={[1, 2, 3, 3]} spacing={10} py={5}>
-          {image3.map((image, i) => (
-            <Box key={i}>
-              <Image src={image.img} alt="home img" w="100%" />
-            </Box>
+          {image3.map((item, i) => (
+            <VStack align="left" key={i}>
+              <Image src={item.img} alt="home img" w="100%" />
+              <Text fontSize="xl">{item.heading}</Text>
+              <Text>{item.description}</Text>
+              <Link color="teal.500" href="#">
+                {item.text}
+              </Link>
+            </VStack>
           ))}
         </SimpleGrid>
+        <HStack w="100%">
+          <Text align="center" w="100%">
+            * Exclusions apply
+            <Link color="teal.500" href="#" px="5px">
+              See details.
+            </Link>
+          </Text>
+        </HStack>
       </Stack>
     </Stack>
   );
