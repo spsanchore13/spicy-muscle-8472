@@ -25,9 +25,9 @@ const Dresses = () => {
   const [shoes, setShoes] = useState([]);
 
   const productsData = useSelector(
-    (state) => state?.ProductReducer?.filteredItems
+    (state) => state.ProductReducer?.filteredItems
   );
-  // console.log(productsData);
+  console.log(productsData);
 
   const dispatch = useDispatch();
 
@@ -35,30 +35,6 @@ const Dresses = () => {
   useEffect(() => {
     dispatch(getDressesProducts());
   }, []);
-
-  // const [list, setList] = useState(productsData);
-  // const [resultsFound, setResultsFound] = useState(true);
-  // const [searchInput, setSearchInput] = useState("");
-
-  //Apply search functionality
-  // const applyFilters = () => {
-  //   let updatedList = productsData;
-
-  //   if (searchInput) {
-  //     console.log(searchInput);
-  //     updatedList = updatedList.filter(
-  //       (item) =>
-  //         item.name.toLowerCase().search(searchInput.toLowerCase().trim()) !==
-  //         -1
-  //     );
-  //   }
-  //   setList(updatedList);
-  //   !updatedList ? setResultsFound(false) : setResultsFound(true);
-  // };
-
-  // useEffect(() => {
-  //   applyFilters();
-  // }, [searchInput]);
 
   // Pagination Logic
   const [currentPage, setCurrentPage] = useState(1);
@@ -141,13 +117,13 @@ const Dresses = () => {
       </Flex>
 
       <SimpleGrid columns={[1, 1, 2, 3]} gap={5}>
-        {
-          currentpages?.map((item) => {
+        {currentpages &&
+          currentpages?.map((val) => {
             // console.log(item);
             return (
               <DressesInfo
-                key={item.id}
-                item={item}
+                key={val.id}
+                val={val}
                 // location={products}
               />
             );

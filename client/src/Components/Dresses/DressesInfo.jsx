@@ -15,10 +15,12 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { postCartItems } from "../../Redux/Cart/action";
 import styles from "../styles/DressesInfo.module.css";
 
-const DressesInfo = ({ item }) => {
+const DressesInfo = ({ val }) => {
   const navigate = useNavigate();
   const [img, setImg] = useState(true);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -30,19 +32,48 @@ const DressesInfo = ({ item }) => {
     setImg(!img);
   };
 
+  const dispatch = useDispatch();
+
+  const product = useSelector((state) => state.ProductReducer.products);
+  console.log(product);
+  // const data = product.map((data) => {
+  //   var item = {
+  //     productId: data?._id,
+  //     name: data?.name,
+  //     price: data?.price,
+  //     quantity: 1,
+  //     image: data?.images[0]?.image,
+  //   };
+  // });
+
+  // const userId = "636ccf3ff2b55f7b5ac1f105";
+
+  // const { productId } = useParams();
+
+  // const addProducts = (data, userId) => {
+  //   console.log(data);
+  //   dispatch(postCartItems(data, userId))
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
   return (
     <div>
       <div style={{ cursor: "pointer" }}>
         {/* {console.log(item._id)} */}
         <div
           className={styles.image}
-          key={item.id}
+          key={val.id}
           style={{
             position: "relative",
             // border:"1px solid red"
           }}
         >
-          <Link to={`/products/${item._id}`}>
+          <Link to={`/products/${val._id}`}>
             <img
               onMouseOver={handleHover}
               onMouseOut={handleOut}
@@ -51,11 +82,11 @@ const DressesInfo = ({ item }) => {
                 width: "80%",
                 // border:" 1px solid red"
               }}
-              src={img ? item.images[0].image : item.images[1].image}
+              src={img ? val.images[0].image : val.images[1].image}
               alt="image"
             />
 
-            <p style={{ margin: "auto", alignItems: "center" }}>{item.name} </p>
+            <p style={{ margin: "auto", alignItems: "center" }}>{val.name} </p>
           </Link>
           <div
             style={{
@@ -65,7 +96,7 @@ const DressesInfo = ({ item }) => {
               alignContent: "center",
             }}
           >
-            <p>${item.price}</p>
+            <p>${val.price}</p>
             <div
               onClick={onOpen}
               className={styles.quick}
@@ -84,15 +115,15 @@ const DressesInfo = ({ item }) => {
             <ModalBody>
               <Text fontWeight="bold" mb="1rem">
                 <Flex gap={4}>
-                  <Img height="280px" src={item.images[0].image} />
+                  <Img height="280px" src={val.images[0].image} />
                   <Box display="flex" flexDirection="column" gap="10px">
                     <Heading as="h5" size="sm">
-                      {item.name}
+                      {val.name}
                     </Heading>
-                    <Text>{item.brand}</Text>
-                    <Text>${item.price}</Text>
-                    <Text>{item.type}</Text>
-                    <Text>{item.rating}</Text>
+                    <Text>{val.brand}</Text>
+                    <Text>${val.price}</Text>
+                    <Text>{val.type}</Text>
+                    <Text>{val.rating}</Text>
                   </Box>
                 </Flex>
               </Text>
@@ -100,10 +131,14 @@ const DressesInfo = ({ item }) => {
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
+              {/* <Button
+                colorScheme="blue"
+                mr={3}
+                onClick={() => addProducts(data, userId)}
+              >
                 Add to Basket
-              </Button>
-              <Link to={`/products/${item._id}`}>
+              </Button> */}
+              <Link to={`/products/${val._id}`}>
                 <Button variant="ghost">View full details</Button>
               </Link>
             </ModalFooter>

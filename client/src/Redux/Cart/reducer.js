@@ -9,7 +9,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     const { type, payload } = action
-    console.log(payload);
+    // console.log(payload);
 
     switch (type) {
         case types.GET_CART_ITEMS_REQUEST:
