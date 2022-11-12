@@ -71,13 +71,13 @@ const HomePage = () => {
 
   return (
     <Stack border="1px solid red" w="100%" px={5}>
-      <Box position="relative" py={5}>
+      <Box position="relative" w="100%" py={5}>
         <Image
           w="100%"
           h="auto"
           src="https://images.ctfassets.net/5de70he6op10/6YcDf5MI12J4gw9cOaz9WP/70f858a9574c2e0ff43b2b7bdc6e61af/LS_M4.jpg?w=2641&q=80&fm=webp"
         />
-        {/* <Button
+        <Button
           position="absolute"
           top="90%"
           left="45%"
@@ -85,7 +85,7 @@ const HomePage = () => {
           transform="translate(50%,50%)"
         >
           shop dresses
-        </Button> */}
+        </Button>
       </Box>
       <SimpleGrid columns={[1, 2, 3, 3]} spacing={10} py={5}>
         {image1.map((image, i) => (
