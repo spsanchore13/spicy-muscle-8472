@@ -10,6 +10,7 @@ import {
   Stack,
   Text,
   useMediaQuery,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
 import Basket from "../components/Cart/Basket";
@@ -18,11 +19,11 @@ import OrderSummery from "../components/Cart/OrderSummery";
 const CartPage = () => {
   const [isNotSmallScreen] = useMediaQuery("(min-width: 786px)");
   const cartItems = useSelector((state) => state.CartReducer.items);
-
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const userId = "636ccf3ff2b55f7b5ac1f105";
+    const userId = localStorage.getItem("userId");
     dispatch(getCartItems(userId));
   }, []);
 

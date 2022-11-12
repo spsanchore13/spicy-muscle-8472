@@ -5,7 +5,6 @@ import SignupModel from "../components/signup/SignupSetUp";
 const Signup = () => {
   return (
     <Box>
-      <Heading>Sign up</Heading>
       <SignupModel />
     </Box>
   );

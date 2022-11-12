@@ -5,7 +5,6 @@ import LoginModel from "../components/login/LoginSetUp";
 const Login = () => {
   return (
     <Box>
-      <Heading>Login</Heading>
       <LoginModel />
     </Box>
   );

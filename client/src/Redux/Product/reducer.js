@@ -7,6 +7,7 @@ const initialState = {
   isError: false,
   error: null,
   isDeleted: false,
+  isUpdated: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,8 +31,6 @@ const reducer = (state = initialState, action) => {
         filteredItems: payload.data,
         sort: payload.sort,
       };
-    case types.DELETE_PRODUCTS_SUCCESS:
-      return { ...state, isDeleted: true }
     default:
       return { state };
   }

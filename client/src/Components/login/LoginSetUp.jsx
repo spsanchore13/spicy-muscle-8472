@@ -36,7 +36,9 @@ export default function LoginModel() {
       email,
       password,
     };
-    dispatch(LoginUser(payload, toast, navigate));
+    dispatch(LoginUser(payload, toast, navigate)).then(() => {
+      onClose();
+    });
   };
   const handleClick = () => {
     setShow(!show);
@@ -44,7 +46,7 @@ export default function LoginModel() {
 
   return (
     <>
-      <Button onClick={onOpen}>Login</Button>
+      <Text onClick={onOpen}>Login</Text>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

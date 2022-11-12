@@ -11,6 +11,7 @@ import {
   SimpleGrid,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect } from "react";
@@ -26,7 +27,7 @@ import Spinner from "../components/Spinner/Spinner";
 
 const ProductsDetails = () => {
   const dispatch = useDispatch();
-
+  const toast = useToast()
   const product = useSelector((state) => state.product);
   // console.log(product);
 
@@ -38,13 +39,13 @@ const ProductsDetails = () => {
     image: product[0]?.images[0]?.image,
   };
 
-  const userId = "636ccf3ff2b55f7b5ac1f105";
+  const userId = localStorage.getItem("userId");
 
   const { productId } = useParams();
 
   const addProducts = (item, userId) => {
     // console.log(item);
-    dispatch(postCartItems(item, userId))
+    dispatch(postCartItems(item, userId,toast))
       .then((res) => {
         console.log(res);
       })
@@ -75,8 +76,7 @@ const ProductsDetails = () => {
   return (
     <Box>
       {Object.keys(product).length === 0 ? (
-        <Spinner
-        />
+        <Spinner />
       ) : (
         <Container maxW={"5xl"}>
           <SimpleGrid
@@ -117,7 +117,7 @@ const ProductsDetails = () => {
                     <Image src={product[0].images[3].image} />
                   </Box>
                   <Box w="200px" h="200px">
-                    <Image src={product[0].images[4].image} />
+                    <Image src={product[0]?.images[4]?.image} />
                   </Box>
                 </HStack>
               </Box>

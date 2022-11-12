@@ -17,7 +17,7 @@ const AdminNavbar = () => {
     });
   };
   return (
-    <Box h="8vh" bg={"black"} mx={"5"}>
+    <Box h="8vh" bg={"#c07174"} mx={"5"}>
       <Flex alignItems={"center"} justifyContent={"space-between"}>
         <Box mx={"5"}>
           <SideBar />

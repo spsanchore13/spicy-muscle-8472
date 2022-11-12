@@ -18,10 +18,13 @@ import Language from "./Language";
 import Profile from "./Profile";
 import { BsHandbag } from "react-icons/bs";
 import RouteModal from "./Drawyer";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Navbar = () => {
   const [isLargerThan] = useMediaQuery("(min-width: 1024px)");
   const [isSmallerThan] = useMediaQuery("(min-width: 769px)");
+  const tok = useSelector((store) => store?.AuthReducer?.token);
+  const token = localStorage.getItem("token") || tok;
 
   const baseStyle = {
     color: "black",
@@ -56,7 +59,6 @@ const Navbar = () => {
                 <Language />
               </Flex>
               <Flex alignItems={"center"}>
-                <Icon fontSize={"2xl"} as={AiOutlineUser} />
                 <Profile />
               </Flex>
             </Flex>
@@ -67,7 +69,7 @@ const Navbar = () => {
         <Flex
           justifyContent={"space-between"}
           flexDirection={isLargerThan ? "row" : "column"}
-          borderBottom={'1px solid darkgrey'}
+          borderBottom={"1px solid darkgrey"}
         >
           <Flex alignItems={"center"} mx={"7"}>
             <Box
@@ -123,27 +125,96 @@ const Navbar = () => {
                 </InputRightElement>
               </InputGroup>
             </Box>
-            <Box>
-              <Icon as={BsHandbag} fontSize={isLargerThan ? "xl" : "2xl"} />
-            </Box>
+            <Link to={token ? "/cart" : "/"}>
+              <Box>
+                <Icon as={BsHandbag} fontSize={isLargerThan ? "xl" : "2xl"} />
+              </Box>
+            </Link>
             {isLargerThan ? null : <RouteModal />}
           </Flex>
         </Flex>
       </Box>
       <Divider />
-     {isLargerThan? <Flex alignItems={'center'} alignContent={'center'} justifyContent={isLargerThan ? "left" : null} fontSize={'sm'} px={'7'} my={'3'} gap={'15px'}  py={'3'}  borderBottom={'1px solid darkgrey'}>
-        <NavLink to="/gift"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >Gifts</NavLink>
-        <NavLink to="/new"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >New</NavLink>
-        <NavLink to="/dresses"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >Dresses</NavLink>
-        <NavLink to="/clothe"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >Clothing</NavLink>
-        <NavLink to="/shoes"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >Shoes</NavLink>
-        <NavLink to="/accesories"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >Accesories</NavLink>
-        <NavLink to="/wedding"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >BHLDN Wedding</NavLink>
-        <NavLink to="/furniture"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >Home & Furniture</NavLink>
-        <NavLink to="/beauty"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >Beauty & Wellness</NavLink>
-        <NavLink to="/garden"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >Garden & Outdore</NavLink>
-        <NavLink to="/sale"  style={({ isActive }) => (isActive ? activeStyle : baseStyle)} >Sale</NavLink>
-      </Flex>:null}
+      {isLargerThan ? (
+        <Flex
+          alignItems={"center"}
+          alignContent={"center"}
+          justifyContent={isLargerThan ? "left" : null}
+          fontSize={"sm"}
+          px={"7"}
+          my={"3"}
+          gap={"15px"}
+          py={"3"}
+          borderBottom={"1px solid darkgrey"}
+        >
+          <NavLink
+            to="/gift"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            Gifts
+          </NavLink>
+          <NavLink
+            to="/new"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            New
+          </NavLink>
+          <NavLink
+            to="/dresses"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            Dresses
+          </NavLink>
+          <NavLink
+            to="/clothe"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            Clothing
+          </NavLink>
+          <NavLink
+            to="/shoes"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            Shoes
+          </NavLink>
+          <NavLink
+            to="/accesories"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            Accesories
+          </NavLink>
+          <NavLink
+            to="/wedding"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            BHLDN Wedding
+          </NavLink>
+          <NavLink
+            to="/furniture"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            Home & Furniture
+          </NavLink>
+          <NavLink
+            to="/beauty"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            Beauty & Wellness
+          </NavLink>
+          <NavLink
+            to="/garden"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            Garden & Outdore
+          </NavLink>
+          <NavLink
+            to="/sale"
+            style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
+          >
+            Sale
+          </NavLink>
+        </Flex>
+      ) : null}
     </Box>
   );
 };

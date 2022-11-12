@@ -27,7 +27,6 @@ const Dresses = () => {
   const productsData = useSelector(
     (state) => state.ProductReducer?.filteredItems
   );
-  console.log(productsData);
 
   const dispatch = useDispatch();
 

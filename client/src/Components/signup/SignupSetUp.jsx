@@ -57,14 +57,16 @@ export default function SignupModel() {
   const [state, setState] = useReducer(reducer, initialState);
 
   const hanldeSignUp = () => {
-    dispatch(signUp(state, toast, navigate));
+    dispatch(signUp(state, toast, navigate)).then(() => {
+      onClose();
+    });
   };
   const handleClick = () => {
     setShow(!show);
   };
   return (
     <>
-      <Button onClick={onOpen}>Sign up</Button>
+      <Text onClick={onOpen}>/ Sign up</Text>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

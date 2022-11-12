@@ -12,6 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import Navbar from "../components/Navbar/Navbar";
 
 const HomePage = () => {
   const image1 = [
@@ -80,101 +81,103 @@ const HomePage = () => {
   ];
 
   return (
-    <Stack border="1px solid red" w="100%" px={5}>
-      <Box position="relative" w="100%" py={5}>
-        <Image
-          w="100%"
-          src="https://images.ctfassets.net/5de70he6op10/6YcDf5MI12J4gw9cOaz9WP/70f858a9574c2e0ff43b2b7bdc6e61af/LS_M4.jpg?w=2641&q=80&fm=webp"
-        />
-        <Button
-          position="absolute"
-          top="95%"
-          left="50%"
-          transform="translate(-50%,-150%)"
-          borderRadius="none"
-          fontSize={["10px"]}
-        >
-          shop dresses
-        </Button>
-      </Box>
-      <SimpleGrid columns={[1, 2, 3, 3]} spacing={10} py={5}>
-        {image1.map((image, i) => (
-          <Box key={i} position="relative" w="100%">
-            <Image src={image.img} alt="home img" w="100%" />
-            <Button
-              position="absolute"
-              top="95%"
-              left="50%"
-              transform="translate(-50%,-90%)"
-              borderRadius="none"
-            >
-              {image.text}
-            </Button>
-          </Box>
-        ))}
-      </SimpleGrid>
-      <Box position="relative" py={5}>
-        <Image
-          w="100%"
-          h="auto"
-          src="https://images.ctfassets.net/5de70he6op10/1VNWTi2TIhqy5CeUy5jKZ2/2ce96ec76374b5244e92d2c954788986/M2_Apparel.jpg?w=2648&q=80&fm=webp"
-        />
-
-        <Button
-          position="absolute"
-          top="95%"
-          left="50%"
-          transform="translate(-50%,-150%)"
-          borderRadius="none"
-          fontSize={["10px"]}
-        >
-          explore the edit
-        </Button>
-      </Box>
-      <SimpleGrid columns={[1, 2, 3, 3]} spacing={10} py={5}>
-        {image2.map((image, i) => (
-          <Box key={i} position="relative">
-            <Image src={image.img} alt="home img" w="100%" />
-            <Button
-              position="absolute"
-              top="95%"
-              left="50%"
-              transform="translate(-50%,-90%)"
-              borderRadius="none"
-              fontSize={["10px"]}
-            >
-              {image.text}
-            </Button>
-          </Box>
-        ))}
-      </SimpleGrid>
-      <Stack>
-        <Heading fontSize="2xl" fontWeight="hairline" align="center" mt={10}>
-          More to Explore
-        </Heading>
-        <Divider />
+    <>
+      <Stack border="1px solid red" w="100%" px={5}>
+        <Box position="relative" w="100%" py={5}>
+          <Image
+            w="100%"
+            src="https://images.ctfassets.net/5de70he6op10/6YcDf5MI12J4gw9cOaz9WP/70f858a9574c2e0ff43b2b7bdc6e61af/LS_M4.jpg?w=2641&q=80&fm=webp"
+          />
+          <Button
+            position="absolute"
+            top="95%"
+            left="50%"
+            transform="translate(-50%,-150%)"
+            borderRadius="none"
+            fontSize={["10px"]}
+          >
+            shop dresses
+          </Button>
+        </Box>
         <SimpleGrid columns={[1, 2, 3, 3]} spacing={10} py={5}>
-          {image3.map((item, i) => (
-            <VStack align="left" key={i}>
-              <Image src={item.img} alt="home img" w="100%" />
-              <Text fontSize="xl">{item.heading}</Text>
-              <Text>{item.description}</Text>
-              <Link color="teal.500" href="#">
-                {item.text}
-              </Link>
-            </VStack>
+          {image1.map((image, i) => (
+            <Box key={i} position="relative" w="100%">
+              <Image src={image.img} alt="home img" w="100%" />
+              <Button
+                position="absolute"
+                top="95%"
+                left="50%"
+                transform="translate(-50%,-90%)"
+                borderRadius="none"
+              >
+                {image.text}
+              </Button>
+            </Box>
           ))}
         </SimpleGrid>
-        <HStack w="100%">
-          <Text align="center" w="100%">
-            * Exclusions apply
-            <Link color="teal.500" href="#" px="5px">
-              See details.
-            </Link>
-          </Text>
-        </HStack>
+        <Box position="relative" py={5}>
+          <Image
+            w="100%"
+            h="auto"
+            src="https://images.ctfassets.net/5de70he6op10/1VNWTi2TIhqy5CeUy5jKZ2/2ce96ec76374b5244e92d2c954788986/M2_Apparel.jpg?w=2648&q=80&fm=webp"
+          />
+
+          <Button
+            position="absolute"
+            top="95%"
+            left="50%"
+            transform="translate(-50%,-150%)"
+            borderRadius="none"
+            fontSize={["10px"]}
+          >
+            explore the edit
+          </Button>
+        </Box>
+        <SimpleGrid columns={[1, 2, 3, 3]} spacing={10} py={5}>
+          {image2.map((image, i) => (
+            <Box key={i} position="relative">
+              <Image src={image.img} alt="home img" w="100%" />
+              <Button
+                position="absolute"
+                top="95%"
+                left="50%"
+                transform="translate(-50%,-90%)"
+                borderRadius="none"
+                fontSize={["10px"]}
+              >
+                {image.text}
+              </Button>
+            </Box>
+          ))}
+        </SimpleGrid>
+        <Stack>
+          <Heading fontSize="2xl" fontWeight="hairline" align="center" mt={10}>
+            More to Explore
+          </Heading>
+          <Divider />
+          <SimpleGrid columns={[1, 2, 3, 3]} spacing={10} py={5}>
+            {image3.map((item, i) => (
+              <VStack align="left" key={i}>
+                <Image src={item.img} alt="home img" w="100%" />
+                <Text fontSize="xl">{item.heading}</Text>
+                <Text>{item.description}</Text>
+                <Link color="teal.500" href="#">
+                  {item.text}
+                </Link>
+              </VStack>
+            ))}
+          </SimpleGrid>
+          <HStack w="100%">
+            <Text align="center" w="100%">
+              * Exclusions apply
+              <Link color="teal.500" href="#" px="5px">
+                See details.
+              </Link>
+            </Text>
+          </HStack>
+        </Stack>
       </Stack>
-    </Stack>
+    </>
   );
 };
 

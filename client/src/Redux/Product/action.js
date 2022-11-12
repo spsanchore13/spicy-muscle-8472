@@ -2,7 +2,6 @@ import axios from "axios";
 import * as types from "./actionTypes";
 
 export const getProducts = (params) => (dispatch) => {
-  console.log(params);
   dispatch({ type: types.GET_PRODUCTS_REQUEST });
   return axios("http://localhost:8080/products", params)
     .then((res) => {
@@ -39,15 +38,22 @@ export const getDressesProducts = () => (dispatch) => {
 
 export const deleteProducts = (id) => (dispatch) => {
 
-  dispatch({ type: types.GET_PRODUCTS_REQUEST });
+  dispatch({ type: types.DELETE_PRODUCTS_REQUEST });
   return axios.delete(`http://localhost:8080/products/${id}`).then((res) => {
     dispatch({ type: types.DELETE_PRODUCTS_SUCCESS })
   }).catch((err) => {
-    dispatch({ type: types.GET_PRODUCTS_FAILURE })
+    dispatch({ type: types.DELETE_PRODUCTS_FAILURE })
   })
 }
 
-
+export const updateProducts = (id, payload) => (dispatch) => {
+  dispatch({ type: types.UPDATE_PRODUCTS_REQUEST })
+  return axios.patch(`http://localhost:8080/products/${id}`, payload).then((res) => {
+    dispatch({ type: types.UPDATE_PRODUCTS_SUCCESS })
+  }).catch((err) => {
+    dispatch({ type: types.UPDATE_PRODUCTS_FAILURE })
+  })
+}
 export const sortProductsApi = (filteredItems, sort) => (dispatch) => {
   const sortedProducts = filteredItems?.slice();
   if (sort === "latest") {

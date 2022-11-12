@@ -6,6 +6,7 @@ import {
   HStack,
   IconButton,
   Image,
+  useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch } from "react-redux";
@@ -18,7 +19,7 @@ import {
 const Basket = ({ name, productId, price, image, quantity }) => {
   const dispatch = useDispatch();
   const userId = localStorage.getItem("userId") || "636ccf3ff2b55f7b5ac1f105";
-
+  const toast = useToast();
   const handleQuantity = (item) => {
     dispatch(postCartItems(item, userId)).then(() =>
       dispatch(getCartItems(userId))
@@ -26,7 +27,7 @@ const Basket = ({ name, productId, price, image, quantity }) => {
   };
 
   const handleRemove = (userId, productId) => {
-    dispatch(removeCartItem(userId, productId)).then(() =>
+    dispatch(removeCartItem(userId, productId, toast)).then(() =>
       dispatch(getCartItems(userId))
     );
   };

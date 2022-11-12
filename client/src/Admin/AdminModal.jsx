@@ -14,31 +14,26 @@ import {
 import { useEffect } from "react";
 import { useState } from "react";
 import { EditIcon, Icon } from "@chakra-ui/icons";
-import { getProducts } from "../Redux/Product/action";
-
+import { getProducts, updateProducts } from "../Redux/Product/action";
 
 export function AdminUpdate({ id, products, dispatch, getData }) {
   const [productName, setProductName] = useState("");
-  const [productGender, setProductGender] = useState("");
-  const [productCategory, setProductCategory] = useState("");
+  const [productType, setProductType] = useState("");
   const [productPrice, setProductPrice] = useState("");
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (productName && productGender && productCategory && productPrice) {
+    if (productName && productType && productPrice) {
       const payload = {
         name: productName,
-        gender: productGender,
-        category: productCategory,
-        final_price: productPrice,
+        type: productType,
+        price: productPrice,
       };
-      dispatch(getProducts(id, payload)).then(() => {
-        dispatch(getData());
+      dispatch(updateProducts(id, payload)).then(() => {
+        dispatch(getProducts());
       });
     }
-    setProductCategory("");
-    setProductGender("");
+    setProductType("");
     setProductName("");
     setProductPrice("");
   };
@@ -48,21 +43,20 @@ export function AdminUpdate({ id, products, dispatch, getData }) {
       const currentProducts = products.find((item) => item.id === id);
       if (currentProducts) {
         setProductName(currentProducts.name);
-        setProductGender(currentProducts.gender);
-        setProductCategory(currentProducts.category);
-        setProductPrice(currentProducts.final_price);
+        setProductType(currentProducts.type);
+        setProductPrice(currentProducts.price);
       }
     }
   }, [id, products]);
   return (
     <>
       <Button onClick={onOpen}>
-        <Icon as={EditIcon} />
+        <Icon color={"#c07174"} as={EditIcon} />
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>Anthropology</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <form onSubmit={handleSubmit}>
@@ -72,17 +66,11 @@ export function AdminUpdate({ id, products, dispatch, getData }) {
                 onChange={(e) => setProductName(e.target.value)}
                 value={productName}
               />
-              <FormLabel>Gender</FormLabel>
+              <FormLabel>Type</FormLabel>
               <Input
-                placeholder="Gender"
-                onChange={(e) => setProductGender(e.target.value)}
-                value={productGender}
-              />
-              <FormLabel>Category</FormLabel>
-              <Input
-                placeholder="Category"
-                onChange={(e) => setProductCategory(e.target.value)}
-                value={productCategory}
+                placeholder="Type"
+                onChange={(e) => setProductType(e.target.value)}
+                value={productType}
               />
               <FormLabel>Price</FormLabel>
               <Input
@@ -92,10 +80,10 @@ export function AdminUpdate({ id, products, dispatch, getData }) {
               />
 
               <ModalFooter>
-                <Button bg={"black"} color={"white"} mr={3} type="submit">
+                <Button bg={"#c07174"} color={"white"} mr={3} type="submit">
                   Update
                 </Button>
-                <Button bg={"black"} color={"white"} mr={3} onClick={onClose}>
+                <Button bg={"#c07174"} color={"white"} mr={3} onClick={onClose}>
                   Close
                 </Button>
               </ModalFooter>

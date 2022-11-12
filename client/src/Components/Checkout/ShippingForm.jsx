@@ -60,11 +60,11 @@ const ShippingForm = () => {
       order_id: order.id,
       callback_url:
         "http://localhost:8080/checkout/order/636ccf3ff2b55f7b5ac1f105/paymentverification",
-      prefill: {
-        name: "Shantilal Patliya",
-        email: "shantilalpatliya18@gmail.com",
-        contact: "9784102014",
-      },
+      // prefill: {
+      //   name: "Shantilal Patliya",
+      //   email: "shantilalpatliya18@gmail.com",
+      //   contact: "9784102014",
+      // },
       notes: {
         address: "Bettermart Corporate Office",
       },
