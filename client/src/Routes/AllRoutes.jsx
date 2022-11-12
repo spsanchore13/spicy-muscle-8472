@@ -6,16 +6,17 @@ import DressesPage from "../pages/DressesPage";
 import ProductPage from "../pages/ProductPage";
 import ProductsDetails from "../pages/ProductsDetailsPage";
 import Signup from "../pages/Signup";
-import { Navbar } from "../components/Navbar/Navbar";
 import CheckoutPage from "../pages/CheckoutPage";
 import PaymentSuccessPage from "../pages/PaymentSuccessPage";
 import CartPage from "../pages/CartPage";
 
 const AllRoutes = () => {
   return (
+    <>
     
-    <Routes>
-      <Navbar />
+    
+    
+     
       
       
       <Routes>
@@ -38,7 +39,8 @@ const AllRoutes = () => {
 
         <Route path="/paymentsuccess" element={<PaymentSuccessPage />} />
       </Routes>
-    </Routes>
+      </>
+    
   );
 };
 
