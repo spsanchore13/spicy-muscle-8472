@@ -12,6 +12,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import HomeCarousel1 from "../components/Carousel/HomeCarousel1";
 
 const HomePage = () => {
   const image1 = [
@@ -80,7 +81,7 @@ const HomePage = () => {
   ];
 
   return (
-    <Stack border="1px solid red" w="100%" px={5}>
+    <Stack w="100%" px={5}>
       <Box position="relative" w="100%" py={5}>
         <Image
           w="100%"
@@ -96,6 +97,9 @@ const HomePage = () => {
         >
           shop dresses
         </Button>
+      </Box>
+      <Box>
+        <HomeCarousel1 />
       </Box>
       <SimpleGrid columns={[1, 2, 3, 3]} spacing={10} py={5}>
         {image1.map((image, i) => (
