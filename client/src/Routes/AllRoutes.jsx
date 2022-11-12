@@ -8,12 +8,14 @@ import { Navbar } from "../components/Navbar/Navbar";
 import CheckoutPage from "../pages/CheckoutPage";
 import PaymentSuccessPage from "../pages/PaymentSuccessPage";
 import CartPage from "../pages/CartPage";
+import HomePage from "../pages/HomePage";
 
 const AllRoutes = () => {
   return (
     <>
-      <Navbar />
       <Routes>
+        <Route path="/" element={<HomePage />} />
+
         <Route path="/shoes" element={<ProductPage />} />
 
         <Route path="/dresses" element={<DressesPage />} />
