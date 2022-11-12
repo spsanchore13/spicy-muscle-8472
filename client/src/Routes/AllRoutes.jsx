@@ -12,7 +12,6 @@ import CartPage from "../pages/CartPage";
 const AllRoutes = () => {
   return (
     <>
-      <Navbar />
       <Routes>
         <Route path="/shoes" element={<ProductPage />} />
 

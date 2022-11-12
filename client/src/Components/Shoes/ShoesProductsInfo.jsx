@@ -101,9 +101,9 @@ const ShoesProductsInfo = ({ item, location }) => {
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
+              {/* <Button colorScheme="blue" mr={3} onClick={onClose}>
                 Add to Basket
-              </Button>
+              </Button> */}
               <Link to={`/products/${item._id}`}><Button variant="ghost">View full details</Button></Link>
             </ModalFooter>
           </ModalContent>

@@ -26,9 +26,7 @@ const reducer = (state = initialState, action) => {
     case types.SORT_PRODUCTS_BY_PRICE:
       return {
         ...state,
-        loading: false,
-        error: false,
-        filteredItems: payload.products,
+        filteredItems: payload.data,
         sort: payload.sort,
       };
     default:
