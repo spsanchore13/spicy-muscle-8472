@@ -55,15 +55,12 @@ export default function SignupModel() {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const [state, setState] = useReducer(reducer, initialState);
-
+  
   const hanldeSignUp = () => {
     dispatch(signUp(state, toast, navigate));
   };
   const handleClick = () => {
     setShow(!show);
-  };
-  const showLogin = () => {
-    navigate("/login");
   };
   return (
     <>
@@ -162,12 +159,7 @@ export default function SignupModel() {
 
           <ModalFooter>
             Already Have an Account?
-            <Text
-              color={"black"}
-              fontWeight={"semibold"}
-              mx={"5"}
-              onClick={showLogin}
-            >
+            <Text color={"black"} fontWeight={"semibold"} mx={"5"} onClick={""}>
               Login
             </Text>
           </ModalFooter>

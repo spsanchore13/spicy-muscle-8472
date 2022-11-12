@@ -1,22 +1,22 @@
 import {
   Box,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
   Spacer,
-  MenuDivider,
   Heading,
   Text,
   SimpleGrid,
+  Flex,
+  FormControl,
+  Input,
+  Button,
   Center,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import DressesInfo from "./DressesInfo";
-import { getDressesProducts, getProducts } from "../../Redux/Product/action";
+import { getDressesProducts } from "../../Redux/Product/action";
+import Filter from "./Filter";
+import SearchBar from "../SearchBar";
 
 const Dresses = () => {
   const params = useParams();
@@ -24,64 +24,125 @@ const Dresses = () => {
 
   const [shoes, setShoes] = useState([]);
 
-  const productsData = useSelector((state) => state.ProductReducer.products);
-  console.log(productsData);
+  const productsData = useSelector(
+    (state) => state?.ProductReducer?.filteredItems
+  );
+  // console.log(productsData);
 
   const dispatch = useDispatch();
 
+  // getting data
   useEffect(() => {
-    // const getProductsParams = {
-    //   params: {
-    //     type: "dresses",
-    //   },
-    // };
     dispatch(getDressesProducts());
   }, []);
+
+  // const [list, setList] = useState(productsData);
+  // const [resultsFound, setResultsFound] = useState(true);
+  // const [searchInput, setSearchInput] = useState("");
+
+  //Apply search functionality
+  // const applyFilters = () => {
+  //   let updatedList = productsData;
+
+  //   if (searchInput) {
+  //     console.log(searchInput);
+  //     updatedList = updatedList.filter(
+  //       (item) =>
+  //         item.name.toLowerCase().search(searchInput.toLowerCase().trim()) !==
+  //         -1
+  //     );
+  //   }
+  //   setList(updatedList);
+  //   !updatedList ? setResultsFound(false) : setResultsFound(true);
+  // };
+
+  // useEffect(() => {
+  //   applyFilters();
+  // }, [searchInput]);
+
+  // Pagination Logic
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 12;
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentpages = productsData?.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+  const pageCount = Math.ceil(productsData?.length / productsPerPage);
+
+  let pageNumberArray = [];
+  for (let i = 0; i < pageCount; i++) {
+    pageNumberArray[i] = (
+      <Box className={currentPage == i + 1 ? "page-item active" : "page-item"}>
+        <Button className="page-link" onClick={() => setCurrentPage(i + 1)}>
+          {i + 1}
+        </Button>
+      </Box>
+    );
+  }
 
   return (
     <Box>
       <Center>
-        <Box>
+        <Flex marginBottom={5} mt={4} justifyContent="center" gap={4}>
+          <Box
+            className={currentPage == 1 ? "page-item disabled" : "page-item "}
+          >
+            <Button
+              onClick={() => setCurrentPage(currentPage - 1)}
+              backgroundColor="teal.200"
+              disabled={currentPage == 1}
+            >
+              Prev
+            </Button>
+          </Box>
+
+          <Text gap={2} display="flex">
+            {pageNumberArray.map((li) => li)}
+          </Text>
+          <Box
+            className={
+              currentPage == pageCount ? "page-item disabled" : "page-item "
+            }
+          >
+            <Button
+              onClick={() => setCurrentPage(currentPage + 1)}
+              backgroundColor="teal.200"
+              disabled={currentPage == pageCount}
+            >
+              Next
+            </Button>
+          </Box>
+        </Flex>
+      </Center>
+      <Flex spacing="20px" marginBottom={4} width="90%" marginLeft={37}>
+        <Box direction={["column", "row"]}>
           <Heading as="h4" size="md">
             Womens's Dresses
           </Heading>
-          <Text>{}</Text>
         </Box>
         <Spacer />
-        <Box>
-          Sort :
-          <Menu>
-            <MenuButton
-              px={4}
-              py={2}
-              marginBottom="1rem"
-              marginRight="10px"
-              marginLeft="10px"
-              transition="all 0.2s"
-              borderRadius="md"
-              borderWidth="1px"
-              _hover={{ bg: "gray.400" }}
-              _expanded={{ bg: "blue.400" }}
-              _focus={{ boxShadow: "outline" }}
-            >
-              Featured
-              <ChevronDownIcon />
-            </MenuButton>
-            <MenuList>
-              <MenuItem>Price : Low to High</MenuItem>
-              <MenuItem> price High to Low</MenuItem>
-              <MenuItem>A-Z</MenuItem>
-              <MenuItem>Z-A</MenuItem>
-              <MenuItem>Newest</MenuItem>
-              <MenuDivider />
-            </MenuList>
-          </Menu>
-        </Box>
-      </Center>
+        {/* <Box direction={["column", "row"]}>
+          <Text>{productsData?.length} Products</Text>
+        </Box> */}
 
-      <SimpleGrid columns={[1, 2, 3]} gap={5}>
-        {productsData &&
-          productsData.map((item) => {
+        {/* <Box direction={["column", "row"]}>
+          <SearchBar
+            value={searchInput}
+            changeInput={(e) => setSearchInput(e.target.value)}
+          />
+        </Box> */}
+
+        <Spacer />
+        <Box direction={["column", "row"]}>
+          <Filter></Filter>
+        </Box>
+      </Flex>
+
+      <SimpleGrid columns={[1, 1, 2, 3]} gap={5}>
+        {
+          currentpages?.map((item) => {
             // console.log(item);
             return (
               <DressesInfo
