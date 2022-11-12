@@ -58,29 +58,14 @@ const paymentVerification = async (req, res) => {
     if (isAuthentic) {
         // Database comes here
         const order = await CartModal.find({ userId: userId })
-        console.log(order)
 
-        // let items;
-        // let bill;
-        // order.map((p) => {
-        //     items = p.items;
-        //     bill = p.bill;
-        // })
+        const [{ items, bill }] = order
 
-        // console.log(items, bill);
-
-        // const productId = items.productId;
-
-        // const name = items.name;
-        // const quantity = items.quantity;
-        // const price = items.price;
-        // const image = items.image;
-
-        // await OrderModel.create({
-        //     userId,
-        //     items: [{ productId, name, quantity, price, image }],
-        //     bill
-        // })
+        await OrderModel.create({
+            userId,
+            items: items,
+            bill
+        })
 
 
         await PaymentModel.create({
