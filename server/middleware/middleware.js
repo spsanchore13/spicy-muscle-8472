@@ -7,6 +7,7 @@ const authentication = (req, res, next) => {
         next()
     }
     catch (err) {
+        res.redirect('http://localhost:3000/')
         res.send("Please login again")
         console.log(err)
     }

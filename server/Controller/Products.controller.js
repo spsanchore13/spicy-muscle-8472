@@ -13,10 +13,26 @@ const getProductsById = async (req, res) => {
 };
 
 const deleteProducts = async (req, res) => {
-  const id = req.params.id
-  console.log(id)
-  await ProductModel.deleteOne({ _id: id })
-  res.send("deleted")
+  try {
+    const id = req.params.id
+    await ProductModel.deleteOne({ _id: id })
+    res.send("deleted")
+  }
+  catch (err) {
+    res.send({ "message": err })
+  }
+}
+
+const updateProducts = async (req, res) => {
+  try {
+    const id = req.params.id
+    await ProductModel.updateOne({ _id: id }, { $set: req.body })
+    res.send({ "message": "update successfully" })
+  }
+  catch (err) {
+    res.send({ "messege": err })
+  }
+
 }
 const shoeProducts = async (req, res) => {
   // const page = Number(req.query.pageNumber) || 1;
@@ -72,5 +88,6 @@ module.exports = {
   shoeProducts,
   dressesProducts,
   searchNameApi,
-  deleteProducts
+  deleteProducts,
+  updateProducts
 };

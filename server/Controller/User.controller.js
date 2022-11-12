@@ -40,20 +40,18 @@ const Login = async (req, res) => {
         res.status(400).json({ message: 'Please enter all fields' });
     }
     const user = await UserModel.findOne({ email })
-    const { _id } = user
-    console.log(_id)
-    if (!user) {
 
+    const { _id, role } = user
+
+    if (!user) {
         res.status(400).json({ message: 'User does not exist' });
 
-
     }
-
     const hash = user.password
     bcrypt.compare(password, hash, function (err, result) {
         if (result) {
-            const token = jwt.sign({ email: email }, process.env.SECRET_KEY, { expiresIn: 60 * 60 });
-            res.status(200).send({ "message": "login successfully", "token": token, _id })
+            const token = jwt.sign({ email: email }, process.env.SECRET_KEY);
+            res.status(200).send({ "message": "login successfully", "token": token, _id, role })
 
         } else {
             res.status(401).send({ "message": "Invalid Credentials" })

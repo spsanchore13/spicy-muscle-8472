@@ -10,7 +10,7 @@ const get_cart_items = async (req, res) => {
 
         if (cart && cart.items.length > 0) {
             res.send(cart);
-    
+
         }
         else {
             res.send(null);
