@@ -64,7 +64,8 @@ const paymentVerification = async (req, res) => {
         await OrderModel.create({
             userId,
             items: items,
-            bill
+            bill,
+            order_id: razorpay_order_id
         })
 
 

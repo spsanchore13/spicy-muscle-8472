@@ -22,6 +22,7 @@ const OrderSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    order_id: { type: String, required: true },
     date_added: {
         type: Date,
         default: Date.now
