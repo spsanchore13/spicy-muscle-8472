@@ -9,7 +9,6 @@ import {
   List,
   ListItem,
   SimpleGrid,
-  Spinner,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -23,6 +22,7 @@ import {
   selectedProducts,
 } from "../Redux/Product/action";
 import { postCartItems } from "../Redux/Cart/action";
+import Spinner from "../components/Spinner/Spinner";
 
 const ProductsDetails = () => {
   const dispatch = useDispatch();
@@ -76,11 +76,6 @@ const ProductsDetails = () => {
     <Box>
       {Object.keys(product).length === 0 ? (
         <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="xl"
         />
       ) : (
         <Container maxW={"5xl"}>

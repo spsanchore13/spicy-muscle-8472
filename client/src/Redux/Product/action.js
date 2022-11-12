@@ -37,6 +37,7 @@ export const getDressesProducts = () => (dispatch) => {
     });
 };
 
+<<<<<<< HEAD
 export const deleteProducts = (id) => (dispatch) => {
 
   dispatch({ type: types.GET_PRODUCTS_REQUEST });
@@ -61,7 +62,41 @@ export const sortProductsApi = (productsData, sort) => (dispatch) => {
           ? 1
           : -1
     );
+=======
+export const sortProductsApi = (filteredItems, sort) => (dispatch) => {
+  const sortedProducts = filteredItems?.slice();
+  if (sort === "latest") {
+    sortedProducts.sort((a, b) => (a._id > b._id ? 1 : -1));
+  } else if (sort === "lowest") {
+    sortedProducts.sort((a, b) => (a.price > b.price ? 1 : -1));
+  } else if (sort === "highest") {
+    sortedProducts.sort((a, b) => (a.price < b.price ? 1 : -1));
+  } else if (sort === "asc") {
+    sortedProducts.sort((a, b) => (a.name > b.name ? 1 : -1));
+  } else if (sort === "desc") {
+    sortedProducts.sort((a, b) => (a.name < b.name ? 1 : -1));
+>>>>>>> main
   }
+
+  //       : a.price < b.price
+  //       ? 1
+  //       : -1
+  //   );
+  // }
+  // if (sort === "asc") {
+  //   sortedProducts.sort((a, b) => (a._id > b._id ? 1 : -1));
+  // }
+  // else {
+  //   sortedProducts.sort((a, b) =>
+  //     sort === "desc"
+  //       ? a.name > b.name
+  //         ? 1
+  //         : -1
+  //       : a.name < b.name
+  //       ? 1
+  //       : -1
+  //   );
+  // }
   dispatch({
     type: types.SORT_PRODUCTS_BY_PRICE,
     payload: {
@@ -83,4 +118,3 @@ export const removeSelectedProducts = () => {
     type: types.REMOVE_SELECTED_PRODUCT,
   };
 };
-

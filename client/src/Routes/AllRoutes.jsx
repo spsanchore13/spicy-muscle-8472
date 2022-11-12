@@ -12,14 +12,10 @@ import AdminPage from "../Admin/AdminPage";
 
 const AllRoutes = () => {
   return (
-    
     <>
       {/* <Navbar /> */}
-      
-      
-      <Routes>
 
-      
+      <Routes>
         <Route path="/shoes" element={<ProductPage />} />
         <Route path="/dresses" element={<DressesPage />} />
         <Route path="/admin" element={<AdminPage />} />
