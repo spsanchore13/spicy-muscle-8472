@@ -164,13 +164,13 @@ const Navbar = () => {
           borderBottom={"1px solid darkgrey"}
         >
           <NavLink
-            to="/"
+            to="/gift"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Gifts
           </NavLink>
           <NavLink
-            to="/"
+            to="/new"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             New
@@ -182,7 +182,7 @@ const Navbar = () => {
             Dresses
           </NavLink>
           <NavLink
-            to="/"
+            to="/clothe"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Clothing
@@ -194,37 +194,37 @@ const Navbar = () => {
             Shoes
           </NavLink>
           <NavLink
-            to="/"
+            to="/accesories"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Accesories
           </NavLink>
           <NavLink
-            to="/"
+            to="/wedding"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             BHLDN Wedding
           </NavLink>
           <NavLink
-            to="/"
+            to="/furniture"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Home & Furniture
           </NavLink>
           <NavLink
-            to="/"
+            to="/beauty"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Beauty & Wellness
           </NavLink>
           <NavLink
-            to="/"
+            to="/garden"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Garden & Outdore
           </NavLink>
           <NavLink
-            to="/"
+            to="/sale"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Sale
