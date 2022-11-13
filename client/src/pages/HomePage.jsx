@@ -100,9 +100,9 @@ const HomePage = () => {
           </Button>
         </Box>
         <Box>
-        <HomeCarousel1 />
-      </Box>
-      <SimpleGrid columns={[1, 2, 3, 3]} spacing={10} py={5}>
+          <HomeCarousel1 />
+        </Box>
+        <SimpleGrid columns={[1, 2, 3, 3]} spacing={10} py={5}>
           {image1.map((image, i) => (
             <Box key={i} position="relative" w="100%">
               <Image src={image.img} alt="home img" w="100%" />
@@ -170,7 +170,7 @@ const HomePage = () => {
               </VStack>
             ))}
           </SimpleGrid>
-          <HStack w="100%">
+          <HStack w="100%" py={5}>
             <Text align="center" w="100%">
               * Exclusions apply
               <Link color="teal.500" href="#" px="5px">

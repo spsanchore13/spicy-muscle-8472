@@ -18,16 +18,19 @@ import Language from "./Language";
 import Profile from "./Profile";
 import { BsHandbag } from "react-icons/bs";
 import RouteModal from "./Drawyer";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../Redux/Product/action";
+import mylogo from "../../images/logo.png";
+import mylogotwo from "../../images/logotwo.png";
+
 const Navbar = () => {
   const [text, setText] = useState("");
   const [isLargerThan] = useMediaQuery("(min-width: 1024px)");
   const [isSmallerThan] = useMediaQuery("(min-width: 769px)");
   const tok = useSelector((store) => store?.AuthReducer?.token);
   const token = localStorage.getItem("token") || tok;
-
+  const navigate = useNavigate();
   const baseStyle = {
     color: "black",
     textDecoration: "none",
@@ -87,10 +90,12 @@ const Navbar = () => {
               w={isLargerThan ? null : "50%"}
             >
               <Image
+                onClick={() => navigate("/")}
                 m={isLargerThan ? null : "auto"}
                 w={"150px"}
                 h={"50px"}
-                src="https://images.ctfassets.net/5de70he6op10/7q3Z6vJ6UEPFyAPKAFZZxl/1a22eec777828277571187c43306e983/Anthropologie_Holiday_Lockup__1_update.svg"
+                src={mylogo}
+                // src="https://images.ctfassets.net/5de70he6op10/7q3Z6vJ6UEPFyAPKAFZZxl/1a22eec777828277571187c43306e983/Anthropologie_Holiday_Lockup__1_update.svg"
                 alt={"title1"}
               />
             </Box>
@@ -105,7 +110,8 @@ const Navbar = () => {
                 m={isLargerThan ? null : "auto"}
                 w={"150px"}
                 h={"50px"}
-                src="https://images.ctfassets.net/5de70he6op10/y1O9tEDOvCGliGUvT9RoJ/eb8ab4734c5e3778b8b61da70ed441ac/AL_NewLogo_2.svg"
+                src={mylogotwo}
+                // src="https://images.ctfassets.net/5de70he6op10/y1O9tEDOvCGliGUvT9RoJ/eb8ab4734c5e3778b8b61da70ed441ac/AL_NewLogo_2.svg"
                 alt={"title1"}
               />
             </Box>

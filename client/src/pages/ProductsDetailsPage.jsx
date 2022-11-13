@@ -27,7 +27,7 @@ import Spinner from "../components/Spinner/Spinner";
 
 const ProductsDetails = () => {
   const dispatch = useDispatch();
-  const toast = useToast()
+  const toast = useToast();
   const product = useSelector((state) => state.product);
   // console.log(product);
 
@@ -45,7 +45,7 @@ const ProductsDetails = () => {
 
   const addProducts = (item, userId) => {
     // console.log(item);
-    dispatch(postCartItems(item, userId,toast))
+    dispatch(postCartItems(item, userId, toast))
       .then((res) => {
         console.log(res);
       })
@@ -56,7 +56,7 @@ const ProductsDetails = () => {
 
   const fetchProductsDetail = async () => {
     const res = await axios
-      .get(`http://localhost:8080/products/${productId}`)
+      .get(`https://bettermart.onrender.com/products/${productId}`)
       .catch((err) => {
         console.log(err);
       });
