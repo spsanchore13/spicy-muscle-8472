@@ -1,4 +1,4 @@
-<h1 align="center" id="title">BETTER MART ECOMMERCE</h1>
+<h1 align="center" id="title">BETTERMART ECOMMERCE</h1>
 
 <p align="center"><img src="https://res.cloudinary.com/didawtzbf/image/upload/v1668359948/logo_t5psjt.png" alt="project-image"></p>
 
