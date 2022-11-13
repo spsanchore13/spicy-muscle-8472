@@ -37,10 +37,10 @@ const add_cart_item = async (req, res) => {
 
     try {
         let cart = await CartModel.findOne({ userId });
-
+        console.log(cart)
 
         let item = await ProductModel.findById({ _id: productId });
-
+        console.log(item)
 
         if (cart) {
 

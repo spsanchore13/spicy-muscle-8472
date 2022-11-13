@@ -58,7 +58,11 @@ const paymentVerification = async (req, res) => {
     if (isAuthentic) {
         // Database comes here
         const order = await CartModal.find({ userId: userId })
+<<<<<<< HEAD
         // console.log(order)
+=======
+        console.log(order)
+>>>>>>> 61eeac3046c7b54a1c4e36612dbedfe3f2ee64fb
         const [{ items, bill }] = order
 
         await OrderModel.create({
