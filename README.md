@@ -2,6 +2,8 @@
 
 <p align="center"><img src="https://res.cloudinary.com/didawtzbf/image/upload/v1668359948/logo_t5psjt.png" alt="project-image"></p>
 
+<p id="description">Bettermart is an ecommerce platform from where a user can by daily life used this and accessories like dresses shoes and many more things</p>
+
 <h2>🚀 Demo</h2>
 
 [https://drive.google.com/file/d/11HRw7vJF8pg8LHpEKHq2VP0q7V6eMJlQ/view?usp=share\_link](https://drive.google.com/file/d/11HRw7vJF8pg8LHpEKHq2VP0q7V6eMJlQ/view?usp=share_link)
@@ -18,7 +20,7 @@
 
 <img src="https://res.cloudinary.com/didawtzbf/image/upload/v1668359898/5_lwjvf7.png" alt="project-screenshot" width="100%" height="400px/">
 
-<img src="https://res.cloudinary.com/didawtzbf/image/upload/v1668359906/6_pd52ct.png" alt="project-screenshot" width="100%" height="400px/">
+<img src="https://res.cloudinary.com/didawtzbf/image/upload/v1668359906/6_pd52ct.png" alt="project-screenshot" width="40%" height="400px/">
 
   
   
@@ -70,3 +72,6 @@ Technologies used in the project:
 *   Express js
 *   Mongo DB
 
+<h2>🛡️ License:</h2>
+
+This project is licensed under the
