@@ -10,7 +10,9 @@ const ProductPage = () => {
     <Box>
       <Productheader />
       <Box display="flex" mt={5}>
+        {/* <Box> */}
         <Sidebar2 />
+        {/* </Box> */}
         <Box>
           <ShoesProducts />
         </Box>

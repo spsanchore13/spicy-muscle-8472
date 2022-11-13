@@ -17,6 +17,7 @@ import DressesInfo from "./DressesInfo";
 import { getDressesProducts } from "../../Redux/Product/action";
 import Filter from "./Filter";
 import SearchBar from "../SearchBar";
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 const Dresses = () => {
   const params = useParams();
@@ -59,38 +60,36 @@ const Dresses = () => {
 
   return (
     <Box>
-      <Center>
-        <Flex marginBottom={5} mt={4} justifyContent="center" gap={4}>
-          <Box
-            className={currentPage == 1 ? "page-item disabled" : "page-item "}
+      {/* <Center> */}
+      <Flex px={20} marginBottom={5} mt={4} justifyContent="right" gap={4}>
+        <Box className={currentPage == 1 ? "page-item disabled" : "page-item "}>
+          <Button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            backgroundColor="teal.200"
+            disabled={currentPage == 1}
           >
-            <Button
-              onClick={() => setCurrentPage(currentPage - 1)}
-              backgroundColor="teal.200"
-              disabled={currentPage == 1}
-            >
-              Prev
-            </Button>
-          </Box>
+            <ChevronLeftIcon />
+          </Button>
+        </Box>
 
-          <Text gap={2} display="flex">
-            {pageNumberArray.map((li) => li)}
-          </Text>
-          <Box
-            className={
-              currentPage == pageCount ? "page-item disabled" : "page-item "
-            }
+        <Text gap={2} display="flex">
+          {pageNumberArray.map((li) => li)}
+        </Text>
+        <Box
+          className={
+            currentPage == pageCount ? "page-item disabled" : "page-item "
+          }
+        >
+          <Button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            backgroundColor="teal.200"
+            disabled={currentPage == pageCount}
           >
-            <Button
-              onClick={() => setCurrentPage(currentPage + 1)}
-              backgroundColor="teal.200"
-              disabled={currentPage == pageCount}
-            >
-              Next
-            </Button>
-          </Box>
-        </Flex>
-      </Center>
+            <ChevronRightIcon />
+          </Button>
+        </Box>
+      </Flex>
+      {/* </Center> */}
       <Flex spacing="20px" marginBottom={4} width="90%" marginLeft={37}>
         <Box direction={["column", "row"]}>
           <Heading as="h4" size="md">
