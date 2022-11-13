@@ -44,7 +44,7 @@ const ShippingForm = () => {
     const {
       data: { order },
     } = await axios.post(
-      "http://localhost:8080/checkout/order/636ccf3ff2b55f7b5ac1f105",
+      `https://bettermart-server-production.up.railway.app/checkout/order/${localStorage.getItem("userId")}`,
       {
         amount,
       }
@@ -59,12 +59,12 @@ const ShippingForm = () => {
         "https://media-exp1.licdn.com/dms/image/D4D03AQG-maywhM50mw/profile-displayphoto-shrink_400_400/0/1666174115805?e=1673481600&v=beta&t=tkIpIyaKve2gY4LUdGPqzCv_rSqnBpYu0oxUcN6xLLw",
       order_id: order.id,
       callback_url:
-        "http://localhost:8080/checkout/order/636ccf3ff2b55f7b5ac1f105/paymentverification",
-      // prefill: {
-      //   name: "Shantilal Patliya",
-      //   email: "shantilalpatliya18@gmail.com",
-      //   contact: "9784102014",
-      // },
+        `https://bettermart-server-production.up.railway.app/checkout/order/${localStorage.getItem("userId")}/paymentverification`,
+      prefill: {
+        name: "Shantilal Patliya",
+        email: "shantilalpatliya18@gmail.com",
+        contact: "9784102014",
+      },
       notes: {
         address: "Bettermart Corporate Office",
       },

@@ -56,7 +56,7 @@ const ProductsDetails = () => {
 
   const fetchProductsDetail = async () => {
     const res = await axios
-      .get(`http://localhost:8080/products/${productId}`)
+      .get(`https://bettermart-server-production.up.railway.app/products/${productId}`)
       .catch((err) => {
         console.log(err);
       });
