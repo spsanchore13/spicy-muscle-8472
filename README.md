@@ -2,7 +2,7 @@
 
 <p align="center"><img src="https://res.cloudinary.com/didawtzbf/image/upload/v1668359948/logo_t5psjt.png" alt="project-image"></p>
 
-<p id="description">Bettermart is an ecommerce platform from where a user can by daily life used this and accessories like dresses shoes and many more things</p>
+<p id="description">Bettermart is an ecommerce platform from where a user can by daily life used things and accessories like dresses shoes and many more things</p>
 
 <h2>🚀 Demo</h2>
 
