@@ -85,7 +85,6 @@ const Navbar = () => {
             <Box
               box-shadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
               p={"1"}
-              // border={"1px solid grey"}
               _hover={{ borderTop: "5px solid #af7645" }}
               w={isLargerThan ? null : "50%"}
             >
@@ -95,14 +94,12 @@ const Navbar = () => {
                 w={"150px"}
                 h={"50px"}
                 src={mylogo}
-                // src="https://images.ctfassets.net/5de70he6op10/7q3Z6vJ6UEPFyAPKAFZZxl/1a22eec777828277571187c43306e983/Anthropologie_Holiday_Lockup__1_update.svg"
                 alt={"title1"}
               />
             </Box>
             <Box
               box-shadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
               p={"1"}
-              // border={"1px solid grey"}
               _hover={{ borderTop: "5px solid #af7645" }}
               w={isLargerThan ? null : "50%"}
             >
@@ -111,7 +108,6 @@ const Navbar = () => {
                 w={"150px"}
                 h={"50px"}
                 src={mylogotwo}
-                // src="https://images.ctfassets.net/5de70he6op10/y1O9tEDOvCGliGUvT9RoJ/eb8ab4734c5e3778b8b61da70ed441ac/AL_NewLogo_2.svg"
                 alt={"title1"}
               />
             </Box>
