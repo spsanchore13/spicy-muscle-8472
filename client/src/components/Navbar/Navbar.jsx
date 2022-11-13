@@ -150,7 +150,7 @@ const Navbar = () => {
           </Flex>
         </Flex>
       </Box>
-      {/* <Divider /> */}
+
       {isLargerThan ? (
         <Flex
           bgColor="#FFFFFF"
@@ -164,13 +164,13 @@ const Navbar = () => {
           borderBottom={"1px solid darkgrey"}
         >
           <NavLink
-            to="/gift"
+            to="/"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Gifts
           </NavLink>
           <NavLink
-            to="/new"
+            to="/"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             New
@@ -182,7 +182,7 @@ const Navbar = () => {
             Dresses
           </NavLink>
           <NavLink
-            to="/clothe"
+            to="/"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Clothing
@@ -194,37 +194,37 @@ const Navbar = () => {
             Shoes
           </NavLink>
           <NavLink
-            to="/accesories"
+            to="/"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Accesories
           </NavLink>
           <NavLink
-            to="/wedding"
+            to="/"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             BHLDN Wedding
           </NavLink>
           <NavLink
-            to="/furniture"
+            to="/"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Home & Furniture
           </NavLink>
           <NavLink
-            to="/beauty"
+            to="/"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Beauty & Wellness
           </NavLink>
           <NavLink
-            to="/garden"
+            to="/"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Garden & Outdore
           </NavLink>
           <NavLink
-            to="/sale"
+            to="/"
             style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
           >
             Sale
