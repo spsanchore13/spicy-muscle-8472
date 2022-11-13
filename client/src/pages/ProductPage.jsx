@@ -11,9 +11,6 @@ const ProductPage = () => {
       <Productheader />
       <Box display="flex" mt={5}>
         <Sidebar2 />
-
-        {/* <SimpleSidebar /> */}
-
         <Box>
           <ShoesProducts />
         </Box>

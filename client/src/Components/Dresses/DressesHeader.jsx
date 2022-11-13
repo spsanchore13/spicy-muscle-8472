@@ -5,36 +5,36 @@ import { Link } from "react-router-dom";
 
 const DressesHeader = () => {
   return (
-    <Center margin="auto">
+    <Center margin="auto" display={["none", "none", "flex", "flex"]}>
       <Wrap mt={10} marginBottom="1rem">
         <WrapItem>
-          <Center w="170px" h="80px" bg="red.200">
+          <Center w="170px" h="50px" bg="red.200">
             <Link to="/dresses">WEDDING DRESSES</Link>
           </Center>
         </WrapItem>
         <WrapItem>
-          <Center w="170px" h="80px" bg="green.200">
-            <Link  to="/dresses">CASUAL DRESSES</Link>
+          <Center w="170px" h="50px" bg="green.200">
+            <Link to="/dresses">CASUAL DRESSES</Link>
           </Center>
         </WrapItem>
         <WrapItem>
-          <Center w="170px" h="80px" bg="tomato">
-            <Link  to="/dresses">PARTY DRESSES</Link>
+          <Center w="170px" h="50px" bg="tomato">
+            <Link to="/dresses">PARTY DRESSES</Link>
           </Center>
         </WrapItem>
         <WrapItem>
-          <Center w="170px" h="80px" bg="blue.200">
-            <Link  to="/dresses">WHITE DRESSES</Link>
+          <Center w="170px" h="50px" bg="blue.200">
+            <Link to="/dresses">WHITE DRESSES</Link>
           </Center>
         </WrapItem>
         <WrapItem>
-          <Center w="170px" h="80px" bg="blue.200">
-            <Link  to="/dresses">BLACK DRESSES</Link>
+          <Center w="170px" h="50px" bg="blue.200">
+            <Link to="/dresses">BLACK DRESSES</Link>
           </Center>
         </WrapItem>
         <WrapItem>
-          <Center w="170px" h="80px" bg="blue.200">
-            <Link  to="/dresses">FORMAL DRESSES</Link>
+          <Center w="170px" h="50px" bg="blue.200">
+            <Link to="/dresses">FORMAL DRESSES</Link>
           </Center>
         </WrapItem>
       </Wrap>
