@@ -11,7 +11,7 @@ import {
   InputRightElement,
   useMediaQuery,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { FaTeamspeak } from "react-icons/fa";
 import Language from "./Language";
@@ -19,8 +19,10 @@ import Profile from "./Profile";
 import { BsHandbag } from "react-icons/bs";
 import RouteModal from "./Drawyer";
 import { Link, NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../Redux/Product/action";
 const Navbar = () => {
+  const [text, setText] = useState("");
   const [isLargerThan] = useMediaQuery("(min-width: 1024px)");
   const [isSmallerThan] = useMediaQuery("(min-width: 769px)");
   const tok = useSelector((store) => store?.AuthReducer?.token);
@@ -37,12 +39,17 @@ const Navbar = () => {
     transition: "0.5s",
     borderBottom: "2px solid black",
   };
+
+  const dispatch = useDispatch();
+
+  const handleSearch = () => {
+    dispatch(getProducts());
+  };
+
   return (
     <Box>
       <Box>
         <Image
-          h={isSmallerThan ? "7vh" : "30vh"}
-          my={isSmallerThan ? null : "3"}
           w={"100%"}
           src={
             "https://images.ctfassets.net/5de70he6op10/73vpJWzKmWO1fT2HwJ3p4B/b42cab1aedaef564d46e96fbd1cccaa0/Nov22_30Off_SOS_PrimaryBanner_LS_ThisWeekendOnly.jpg"
@@ -112,9 +119,14 @@ const Navbar = () => {
           >
             <Box w={isLargerThan ? null : "90%"}>
               <InputGroup size="md">
-                <Input pr="4.5rem" placeholder="Search AnthroLiving" />
+                <Input
+                  pr="4.5rem"
+                  placeholder="Search AnthroLiving"
+                  onChange={(e) => setText(e.target.value)}
+                />
                 <InputRightElement width="4.5rem">
                   <Button
+                    onClick={handleSearch}
                     h="1.75rem"
                     size="sm"
                     bg="none"
