@@ -68,6 +68,7 @@ const paymentVerification = async (req, res) => {
             order_id: razorpay_order_id
         })
 
+        await CartModal.deleteOne({ userId })
 
         await PaymentModel.create({
             razorpay_order_id,
