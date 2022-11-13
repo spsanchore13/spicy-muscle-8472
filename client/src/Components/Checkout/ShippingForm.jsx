@@ -63,11 +63,11 @@ const ShippingForm = () => {
       callback_url: `https://bettermart.onrender.com/checkout/order/${localStorage.getItem(
         "userId"
       )}/paymentverification`,
-      prefill: {
-        name: "Shantilal Patliya",
-        email: "shantilalpatliya18@gmail.com",
-        contact: "9784102014",
-      },
+      // prefill: {
+      //   name: "Shantilal Patliya",
+      //   email: "shantilalpatliya18@gmail.com",
+      //   contact: "9784102014",
+      // },
       notes: {
         address: "Bettermart Corporate Office",
       },

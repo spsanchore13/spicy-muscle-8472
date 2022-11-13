@@ -50,7 +50,7 @@ const Navbar = () => {
   };
 
   return (
-    <Box>
+    <Box position="sticky" top="0" zIndex={10}>
       <Box>
         <Image
           w={"100%"}
@@ -75,7 +75,7 @@ const Navbar = () => {
           </Box>
         </Flex>
       ) : null}
-      <Box>
+      <Box bgColor="#FFFFFF">
         <Flex
           justifyContent={"space-between"}
           flexDirection={isLargerThan ? "row" : "column"}
@@ -85,7 +85,7 @@ const Navbar = () => {
             <Box
               box-shadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
               p={"1"}
-              border={"1px solid grey"}
+              // border={"1px solid grey"}
               _hover={{ borderTop: "5px solid #af7645" }}
               w={isLargerThan ? null : "50%"}
             >
@@ -102,7 +102,7 @@ const Navbar = () => {
             <Box
               box-shadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
               p={"1"}
-              border={"1px solid grey"}
+              // border={"1px solid grey"}
               _hover={{ borderTop: "5px solid #af7645" }}
               w={isLargerThan ? null : "50%"}
             >
@@ -152,15 +152,15 @@ const Navbar = () => {
           </Flex>
         </Flex>
       </Box>
-      <Divider />
+      {/* <Divider /> */}
       {isLargerThan ? (
         <Flex
+          bgColor="#FFFFFF"
           alignItems={"center"}
           alignContent={"center"}
           justifyContent={isLargerThan ? "left" : null}
           fontSize={"sm"}
           px={"7"}
-          my={"3"}
           gap={"15px"}
           py={"3"}
           borderBottom={"1px solid darkgrey"}
