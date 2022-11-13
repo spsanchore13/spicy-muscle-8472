@@ -60,58 +60,60 @@ const Navbar = () => {
           alt="banner"
         />
       </Box>
-      {isLargerThan ? (
-        <Flex justifyContent={"right"} bg={"#f7f6f2"}>
-          <Box mx={"7"}>
-            <Flex>
-              <Flex alignItems={"center"}>
-                <Icon fontSize={"2xl"} as={FaTeamspeak} />
-                <Language />
-              </Flex>
-              <Flex alignItems={"center"}>
-                <Profile />
-              </Flex>
+
+      <Flex justifyContent={"right"} bg={"#f7f6f2"}>
+        <Box mx={"7"}>
+          <Flex>
+            <Flex alignItems={"center"}>
+              <Icon fontSize={"2xl"} as={FaTeamspeak} />
+              <Language />
             </Flex>
-          </Box>
-        </Flex>
-      ) : null}
+            <Flex alignItems={"center"}>
+              <Profile />
+            </Flex>
+          </Flex>
+        </Box>
+      </Flex>
+
       <Box bgColor="#FFFFFF">
         <Flex
           justifyContent={"space-between"}
           flexDirection={isLargerThan ? "row" : "column"}
           borderBottom={"1px solid darkgrey"}
         >
-          <Flex alignItems={"center"} mx={"7"}>
-            <Box
-              box-shadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
-              p={"1"}
-              _hover={{ borderTop: "5px solid #af7645" }}
-              w={isLargerThan ? null : "50%"}
-            >
-              <Image
-                onClick={() => navigate("/")}
-                m={isLargerThan ? null : "auto"}
-                w={"150px"}
-                h={"50px"}
-                src={mylogo}
-                alt={"title1"}
-              />
-            </Box>
-            <Box
-              box-shadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
-              p={"1"}
-              _hover={{ borderTop: "5px solid #af7645" }}
-              w={isLargerThan ? null : "50%"}
-            >
-              <Image
-                m={isLargerThan ? null : "auto"}
-                w={"150px"}
-                h={"50px"}
-                src={mylogotwo}
-                alt={"title1"}
-              />
-            </Box>
-          </Flex>
+          {isLargerThan ? (
+            <Flex alignItems={"center"} mx={"7"}>
+              <Box
+                box-shadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+                p={"1"}
+                _hover={{ borderTop: "5px solid #af7645" }}
+                w={isLargerThan ? null : "50%"}
+              >
+                <Image
+                  onClick={() => navigate("/")}
+                  m={isLargerThan ? null : "auto"}
+                  w={"150px"}
+                  h={"50px"}
+                  src={mylogo}
+                  alt={"title1"}
+                />
+              </Box>
+              <Box
+                box-shadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+                p={"1"}
+                _hover={{ borderTop: "5px solid #af7645" }}
+                w={isLargerThan ? null : "50%"}
+              >
+                <Image
+                  m={isLargerThan ? null : "auto"}
+                  w={"150px"}
+                  h={"50px"}
+                  src={mylogotwo}
+                  alt={"title1"}
+                />
+              </Box>
+            </Flex>
+          ) : null}
           <Flex
             alignItems={"center"}
             gap={"15px"}
