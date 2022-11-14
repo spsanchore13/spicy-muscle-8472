@@ -23,25 +23,25 @@ const OrderSummery = ({ bill }) => {
         <HStack>
           <Text fontWeight="semibold">Subtotal </Text>
           <Spacer />
-          <Text>₹ {bill}</Text>
+          <Text>$ {bill}</Text>
         </HStack>
         <Divider />
         <HStack>
           <Text fontWeight="semibold">Shipping Chargel </Text>
           <Spacer />
-          <Text>₹ 0</Text>
+          <Text>$ 0</Text>
         </HStack>
         <Divider />
         <HStack>
           <Text fontWeight="semibold">Estimated Tex </Text>
           <Spacer />
-          <Text>₹ 0</Text>
+          <Text>$ 0</Text>
         </HStack>
         <Divider />
         <HStack>
           <Text fontWeight="bold">Total </Text>
           <Spacer />
-          <Text fontWeight="bold">₹ {bill}</Text>
+          <Text fontWeight="bold">$ {bill}</Text>
         </HStack>
         <Spacer />
         <Link to="/checkout/shipping-address">

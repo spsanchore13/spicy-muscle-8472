@@ -39,7 +39,7 @@ const Basket = ({ name, productId, price, image, quantity }) => {
           <Image src={image} boxSize="150px" />
         </Box>
         <Box w="150px">{name}</Box>
-        <Box>₹ {price}</Box>
+        <Box>$ {price}</Box>
         <Box>
           <HStack>
             <IconButton
@@ -75,7 +75,7 @@ const Basket = ({ name, productId, price, image, quantity }) => {
             />
           </HStack>
         </Box>
-        <Box>₹ {quantity * price}</Box>
+        <Box>$ {quantity * price}</Box>
       </HStack>
       <HStack w="100%" justify="right">
         <Button

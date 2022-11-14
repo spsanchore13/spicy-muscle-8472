@@ -57,7 +57,9 @@ const ProductsDetails = () => {
 
   const fetchProductsDetail = async () => {
     const res = await axios
-      .get(`https://bettermart.onrender.com/products/₹{productId}`)
+      .get(
+        `https://bettermart-server-production.up.railway.app/products/${productId}`
+      )
       .catch((err) => {
         console.log(err);
       });
@@ -143,7 +145,7 @@ const ProductsDetails = () => {
                   {product[0].type}
                 </Text>
                 <Text color="grey.900" fontWeight={300} fontSize={"2xl"}>
-                  ₹{product[0].price}
+                  ${product[0].price}
                 </Text>
               </Box>
 

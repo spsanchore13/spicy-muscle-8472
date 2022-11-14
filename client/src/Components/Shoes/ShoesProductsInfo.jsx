@@ -42,7 +42,7 @@ const ShoesProductsInfo = ({ item, location }) => {
             // border:"1px solid red"
           }}
         >
-          <Link to={`/products/₹{item._id}`}>
+          <Link to={`/products/${item._id}`}>
             <img
               onMouseOver={handleHover}
               onMouseOut={handleOut}
@@ -65,7 +65,7 @@ const ShoesProductsInfo = ({ item, location }) => {
               alignContent: "center",
             }}
           >
-            <p>₹{item.price}</p>
+            <p>${item.price}</p>
 
             <div
               onClick={onOpen}
@@ -91,7 +91,7 @@ const ShoesProductsInfo = ({ item, location }) => {
                       {item.name}
                     </Heading>
                     <Text>{item.brand}</Text>
-                    <Text>₹{item.price}</Text>
+                    <Text>${item.price}</Text>
                     <Text>{item.type}</Text>
                     <Text>{item.rating}</Text>
                   </Box>
@@ -104,7 +104,7 @@ const ShoesProductsInfo = ({ item, location }) => {
               {/* <Button colorScheme="blue" mr={3} onClick={onClose}>
                 Add to Basket
               </Button> */}
-              <Link to={`/products/₹{item._id}`}>
+              <Link to={`/products/${item._id}`}>
                 <Button variant="ghost">View full details</Button>
               </Link>
             </ModalFooter>

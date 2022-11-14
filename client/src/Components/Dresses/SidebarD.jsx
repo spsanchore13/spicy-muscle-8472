@@ -64,22 +64,22 @@ const SidebarD = () => {
               <div className="accordion-body">
                 <div className={styles.btdiv}>
                   <button>
-                    <a href="">Less than ₹25 (45)</a>
+                    <a href="">Less than $25 (45)</a>
                   </button>
                   <button>
-                    <a href="">₹25 -₹50 (154)</a>
+                    <a href="">$25 -$50 (154)</a>
                   </button>
                   <button>
-                    <a href="">₹50 -₹100 (954)</a>
+                    <a href="">$50 -$100 (954)</a>
                   </button>
                   <button>
-                    <a href="">₹100 -₹200 (1560)</a>
+                    <a href="">$100 -$200 (1560)</a>
                   </button>
                   <button>
-                    <a href="">₹200 -₹500 (776)</a>
+                    <a href="">$200 -$500 (776)</a>
                   </button>
                   <button>
-                    <a href="">More than ₹500 (143)</a>
+                    <a href="">More than $500 (143)</a>
                   </button>
                 </div>
               </div>

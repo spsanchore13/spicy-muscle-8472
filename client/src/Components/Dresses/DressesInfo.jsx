@@ -73,7 +73,7 @@ const DressesInfo = ({ val }) => {
             // border:"1px solid red"
           }}
         >
-          <Link to={`/products/₹{val._id}`}>
+          <Link to={`/products/${val._id}`}>
             <img
               onMouseOver={handleHover}
               onMouseOut={handleOut}
@@ -96,7 +96,7 @@ const DressesInfo = ({ val }) => {
               alignContent: "center",
             }}
           >
-            <p>₹{val.price}</p>
+            <p>${val.price}</p>
             <div
               onClick={onOpen}
               className={styles.quick}
@@ -121,7 +121,7 @@ const DressesInfo = ({ val }) => {
                       {val.name}
                     </Heading>
                     <Text>{val.brand}</Text>
-                    <Text>₹{val.price}</Text>
+                    <Text>${val.price}</Text>
                     <Text>{val.type}</Text>
                     <Text>{val.rating}</Text>
                   </Box>
@@ -138,7 +138,7 @@ const DressesInfo = ({ val }) => {
               >
                 Add to Basket
               </Button> */}
-              <Link to={`/products/₹{val._id}`}>
+              <Link to={`/products/${val._id}`}>
                 <Button variant="ghost">View full details</Button>
               </Link>
             </ModalFooter>

@@ -15,18 +15,18 @@ export default function Profile() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const tok = useSelector((store) => store?.AuthReducer?.token);
   const token = localStorage.getItem("token") || tok;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // const token = localStorage.getItem("token");
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
-    navigate("/")
+    navigate("/");
   };
   return (
     <>
       {!token && <Login />}
       {token ? (
-        <Menu isOpen={isOpen}>
+        <Menu isOpen={isOpen} offset={[20, 0]}>
           <MenuButton
             px={1}
             py={3}
@@ -40,7 +40,12 @@ export default function Profile() {
           >
             My Account {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
           </MenuButton>
-          <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
+          <MenuList
+            onMouseEnter={onOpen}
+            onMouseLeave={onClose}
+            borderRadius="none"
+            zIndex={10}
+          >
             <MenuItem>
               <NavLink to="#">Dashboard</NavLink>
             </MenuItem>
