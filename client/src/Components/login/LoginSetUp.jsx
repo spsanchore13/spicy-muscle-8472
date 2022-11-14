@@ -46,7 +46,9 @@ export default function LoginModel() {
 
   return (
     <>
-      <Text onClick={onOpen}>Login</Text>
+      <Text onClick={onOpen} cursor="pointer">
+        Login
+      </Text>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

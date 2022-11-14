@@ -90,6 +90,7 @@ const Navbar = () => {
                 w={isLargerThan ? null : "50%"}
               >
                 <Image
+                  cursor="pointer"
                   onClick={() => navigate("/")}
                   m={isLargerThan ? null : "auto"}
                   w={"150px"}
@@ -105,6 +106,7 @@ const Navbar = () => {
                 w={isLargerThan ? null : "50%"}
               >
                 <Image
+                  cursor="pointer"
                   onClick={() => navigate("/homeliving")}
                   m={isLargerThan ? null : "auto"}
                   w={"150px"}

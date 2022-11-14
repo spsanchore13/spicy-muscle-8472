@@ -66,7 +66,9 @@ export default function SignupModel() {
   };
   return (
     <>
-      <Text onClick={onOpen}>/ Sign up</Text>
+      <Text onClick={onOpen} cursor="pointer">
+        / Sign up
+      </Text>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
