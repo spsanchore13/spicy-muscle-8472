@@ -105,6 +105,7 @@ const Navbar = () => {
                 w={isLargerThan ? null : "50%"}
               >
                 <Image
+                  onClick={() => navigate("/homeliving")}
                   m={isLargerThan ? null : "auto"}
                   w={"150px"}
                   h={"50px"}

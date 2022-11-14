@@ -3,13 +3,12 @@ import { Route, Routes } from "react-router-dom";
 import DressesPage from "../pages/DressesPage";
 import ProductPage from "../pages/ProductPage";
 import ProductsDetails from "../pages/ProductsDetailsPage";
-import Signup from "../pages/Signup";
 import CheckoutPage from "../pages/CheckoutPage";
 import PaymentSuccessPage from "../pages/PaymentSuccessPage";
 import CartPage from "../pages/CartPage";
 import HomePage from "../pages/HomePage";
-import Login from "../pages/Login";
 import AdminPage from "../Admin/AdminPage";
+import HomeLivingPage from "../pages/HomeLivingPage";
 
 const AllRoutes = () => {
   return (
@@ -23,6 +22,7 @@ const AllRoutes = () => {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout/shipping-address" element={<CheckoutPage />} />
         <Route path="/paymentsuccess" element={<PaymentSuccessPage />} />
+        <Route path="/homeliving" element={<HomeLivingPage />} />
       </Routes>
     </>
   );
