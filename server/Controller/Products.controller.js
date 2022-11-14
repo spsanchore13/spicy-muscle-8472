@@ -26,7 +26,7 @@ const deleteProducts = async (req, res) => {
 const updateProducts = async (req, res) => {
   try {
     const id = req.params.id
-    await ProductModel.updateOne({ _id: id }, { ₹set: req.body })
+    await ProductModel.updateOne({ _id: id }, { $set: req.body })
     res.send({ "message": "update successfully" })
   }
   catch (err) {
@@ -40,8 +40,8 @@ const shoeProducts = async (req, res) => {
   // const keyword = req.query.keyword
   //   ? {
   //       name: {
-  //         ₹regex: req.query.keyword,
-  //         ₹options: "si",
+  //         $regex: req.query.keyword,
+  //         $options: "si",
   //       },
   //     }
   //   : {};
@@ -63,7 +63,7 @@ const searchNameApi = async (req, res) => {
   try {
     const name = req.params.name;
     const data = await ProductModel.find(
-      { name: { ₹regex: new RegExp(name), ₹options: "is" }, isActive: true },
+      { name: { $regex: new RegExp(name), $options: "is" }, isActive: true },
       { name: 1, images: 1, price: 1, _id: 0 }
     );
 
