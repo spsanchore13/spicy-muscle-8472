@@ -37,7 +37,7 @@ app.listen(PORT, async () => {
   } catch (e) {
     console.log(e);
   }
-  console.log(`Listining on port ${PORT}`);
+  console.log(`Listining on port ₹{PORT}`);
 });
 
 

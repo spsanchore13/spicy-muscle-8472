@@ -29,7 +29,7 @@ const Language = () => {
       </MenuButton>
       <MenuList>
         <MenuItem>Currency</MenuItem>
-        <MenuItem color="#3289a4">USD ($)</MenuItem>
+        <MenuItem color="#3289a4">USD (₹)</MenuItem>
         <MenuDivider />
         <MenuItem>Language</MenuItem>
         <MenuItem>

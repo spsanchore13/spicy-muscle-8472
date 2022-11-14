@@ -42,7 +42,7 @@ const ShoesProductsInfo = ({ item, location }) => {
             // border:"1px solid red"
           }}
         >
-          <Link to={`/products/${item._id}`}>
+          <Link to={`/products/₹{item._id}`}>
             <img
               onMouseOver={handleHover}
               onMouseOut={handleOut}
@@ -54,8 +54,8 @@ const ShoesProductsInfo = ({ item, location }) => {
               src={img ? item.images[0].image : item.images[1].image}
               alt="image"
             />
-         
-          <p style={{ margin: "auto", alignItems: "center" }}>{item.name} </p>
+
+            <p style={{ margin: "auto", alignItems: "center" }}>{item.name} </p>
           </Link>
           <div
             style={{
@@ -65,8 +65,8 @@ const ShoesProductsInfo = ({ item, location }) => {
               alignContent: "center",
             }}
           >
-            <p>${item.price}</p>
-            
+            <p>₹{item.price}</p>
+
             <div
               onClick={onOpen}
               className={styles.quick}
@@ -91,7 +91,7 @@ const ShoesProductsInfo = ({ item, location }) => {
                       {item.name}
                     </Heading>
                     <Text>{item.brand}</Text>
-                    <Text>${item.price}</Text>
+                    <Text>₹{item.price}</Text>
                     <Text>{item.type}</Text>
                     <Text>{item.rating}</Text>
                   </Box>
@@ -104,7 +104,9 @@ const ShoesProductsInfo = ({ item, location }) => {
               {/* <Button colorScheme="blue" mr={3} onClick={onClose}>
                 Add to Basket
               </Button> */}
-              <Link to={`/products/${item._id}`}><Button variant="ghost">View full details</Button></Link>
+              <Link to={`/products/₹{item._id}`}>
+                <Button variant="ghost">View full details</Button>
+              </Link>
             </ModalFooter>
           </ModalContent>
         </Modal>

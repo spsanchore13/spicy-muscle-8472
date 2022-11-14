@@ -62,7 +62,7 @@ const HomePage = () => {
       text: "shop gift bundles",
       heading: "new! BUNDLE with JOY",
       description:
-        "Save time (and $$$) with curated gift sets for everyone on your list.",
+        "Save time (and ₹₹₹) with curated gift sets for everyone on your list.",
       img: "https://images.ctfassets.net/5de70he6op10/4Uq666sNSwxPJkwfkNekwE/229e99ddfcc9ed0f9fb4c1d0d3f63df9/MTE_1.jpg?w=856&q=80&fm=webp",
     },
     {

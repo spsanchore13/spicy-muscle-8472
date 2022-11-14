@@ -39,7 +39,7 @@ export const getDressesProducts = () => (dispatch) => {
 export const deleteProducts = (id) => (dispatch) => {
 
   dispatch({ type: types.DELETE_PRODUCTS_REQUEST });
-  return axios.delete(`https://bettermart.onrender.com/products/${id}`).then((res) => {
+  return axios.delete(`https://bettermart.onrender.com/products/₹{id}`).then((res) => {
     dispatch({ type: types.DELETE_PRODUCTS_SUCCESS })
   }).catch((err) => {
     dispatch({ type: types.DELETE_PRODUCTS_FAILURE })
@@ -48,7 +48,7 @@ export const deleteProducts = (id) => (dispatch) => {
 
 export const updateProducts = (id, payload) => (dispatch) => {
   dispatch({ type: types.UPDATE_PRODUCTS_REQUEST })
-  return axios.patch(`https://bettermart.onrender.com/products/${id}`, payload).then((res) => {
+  return axios.patch(`https://bettermart.onrender.com/products/₹{id}`, payload).then((res) => {
     dispatch({ type: types.UPDATE_PRODUCTS_SUCCESS })
   }).catch((err) => {
     dispatch({ type: types.UPDATE_PRODUCTS_FAILURE })
