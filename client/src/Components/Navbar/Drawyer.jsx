@@ -34,7 +34,7 @@ export default function RouteModal() {
   };
   return (
     <>
-      <Box ref={btnRef} colorScheme="teal" onClick={onOpen}>
+      <Box ref={btnRef}  onClick={onOpen}>
         <Icon as={HamburgerIcon} fontSize={isLargerThan ? "xl" : "2xl"} />
       </Box>
       <Drawer

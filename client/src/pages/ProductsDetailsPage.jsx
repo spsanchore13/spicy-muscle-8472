@@ -57,9 +57,7 @@ const ProductsDetails = () => {
 
   const fetchProductsDetail = async () => {
     const res = await axios
-      .get(
-        `https://bettermart-server-production.up.railway.app/products/${productId}`
-      )
+      .get(`https://pear-brainy-ant.cyclic.app/products/${productId}`)
       .catch((err) => {
         console.log(err);
       });

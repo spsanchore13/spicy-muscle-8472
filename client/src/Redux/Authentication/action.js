@@ -5,7 +5,7 @@ import * as data from "./actionType"
 const signUp = (payload, toast, navigate) => (dispatch) => {
     dispatch({ type: data.SIGNUP_FAILURE });
     return axios
-        .post("https://bettermart-server-production.up.railway.app/auth/signup", payload)
+        .post("https://pear-brainy-ant.cyclic.app/auth/signup", payload)
         .then((r) => {
             console.log(r)
             setToast(toast, "Signup Successful", "success");
@@ -20,7 +20,7 @@ const signUp = (payload, toast, navigate) => (dispatch) => {
 
 const LoginUser = (payload, toast, navigate) => (dispatch) => {
     dispatch({ type: data.LOGIN_REQUEST })
-    return axios.post("https://bettermart-server-production.up.railway.app/auth/login", payload).then((r) => {
+    return axios.post("https://pear-brainy-ant.cyclic.app/auth/login", payload).then((r) => {
         localStorage.setItem("token", r.data.token)
         localStorage.setItem("userId", r.data._id)
         setToast(toast, "Login Successfully", "success");

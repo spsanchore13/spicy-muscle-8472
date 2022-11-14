@@ -19,16 +19,9 @@ import {
 } from "@chakra-ui/react";
 import { CiLocationOn } from "react-icons/ci";
 import { AddIcon, EmailIcon } from "@chakra-ui/icons";
-import { BsInstagram } from "react-icons/bs";
-import { List, ListItem, ListIcon } from "@chakra-ui/react";
-import {
-  FaRegEnvelope,
-  FaFacebookF,
-  FaMapMarkerAlt,
-  FaInstagramSquare,
-} from "react-icons/fa";
+import { List, ListItem } from "@chakra-ui/react";
+import { FaFacebookF, FaInstagramSquare } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
-import { BsApple } from "react-icons/bs";
 
 const Footer = () => {
   const [isSmallerThan] = useMediaQuery("(min-width: 769px)");

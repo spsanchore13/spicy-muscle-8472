@@ -4,7 +4,7 @@ import { setToast } from "../../utils/Other"
 
 const getCartItems = (userId) => (dispatch) => {
     dispatch({ type: types.GET_CART_ITEMS_REQUEST })
-    return axios(`https://bettermart-server-production.up.railway.app/cart/${userId}`, {
+    return axios(`https://pear-brainy-ant.cyclic.app/cart/${userId}`, {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem("token")}`
@@ -18,7 +18,7 @@ const getCartItems = (userId) => (dispatch) => {
 
 const postCartItems = (item, userId) => (dispatch) => {
     dispatch({ type: types.POST_CART_ITEMS_REQUEST })
-    return axios.post(`https://bettermart-server-production.up.railway.app/cart/${userId}`, item).then((res) => {
+    return axios.post(`https://pear-brainy-ant.cyclic.app/cart/${userId}`, item).then((res) => {
         return dispatch({ type: types.POST_CART_ITEMS_SUCCESS })
     }).catch((err) => {
         return dispatch({ type: types.POST_CART_ITEMS_FAILURE })
@@ -28,7 +28,7 @@ const postCartItems = (item, userId) => (dispatch) => {
 
 const removeCartItem = (userId, productId, toast) => (dispatch) => {
     dispatch({ type: types.REMOVE_CART_ITEM_REQUEST })
-    return axios.delete(`https://bettermart-server-production.up.railway.app/cart/${userId}/${productId}`).then((res) => {
+    return axios.delete(`https://pear-brainy-ant.cyclic.app/cart/${userId}/${productId}`).then((res) => {
         setToast(toast, "Item Removed", "success");
         return dispatch({ type: types.REMOVE_CART_ITEM_SUCCESS })
     }).catch((err) => {
