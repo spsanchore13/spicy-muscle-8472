@@ -4,9 +4,9 @@ import { reducer as ProductReducer } from "./Product/reducer"
 import { reducer as CartReducer } from "./Cart/reducer"
 import { reducer as AuthReducer } from "./Authentication/reducer"
 import { selectedReducers } from "./Product/reducer";
+import {reducer} from "../Redux/HomeLiving/reducer"
 
-
-const rootReducer = combineReducers({ ProductReducer, product: selectedReducers, AuthReducer, CartReducer })
+const rootReducer = combineReducers({ ProductReducer, product: selectedReducers, AuthReducer, CartReducer,reducer })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = legacy_createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
