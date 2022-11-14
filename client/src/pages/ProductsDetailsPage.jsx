@@ -45,9 +45,10 @@ const ProductsDetails = () => {
 
   const addProducts = (item, userId) => {
     // console.log(item);
-    dispatch(postCartItems(item, userId, toast))
+    dispatch(postCartItems(item, userId))
       .then((res) => {
-        console.log(res);
+        // console.log(res);
+        alert("Item Added To Cart");
       })
       .catch((err) => {
         console.log(err);

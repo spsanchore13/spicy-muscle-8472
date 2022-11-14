@@ -35,7 +35,7 @@ const DressesInfo = ({ val }) => {
   const dispatch = useDispatch();
 
   const product = useSelector((state) => state.ProductReducer.products);
-  console.log(product);
+  // console.log(product);
   // const data = product.map((data) => {
   //   var item = {
   //     productId: data?._id,

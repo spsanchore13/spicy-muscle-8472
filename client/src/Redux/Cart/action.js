@@ -16,13 +16,11 @@ const getCartItems = (userId) => (dispatch) => {
     })
 }
 
-const postCartItems = (item, userId, toast) => (dispatch) => {
+const postCartItems = (item, userId) => (dispatch) => {
     dispatch({ type: types.POST_CART_ITEMS_REQUEST })
     return axios.post(`https://bettermart.onrender.com/cart/${userId}`, item).then((res) => {
-        setToast(toast, "Item added", "success");
         return dispatch({ type: types.POST_CART_ITEMS_SUCCESS })
     }).catch((err) => {
-        setToast(toast, "something went wrong", "error");
         return dispatch({ type: types.POST_CART_ITEMS_FAILURE })
     })
 }
@@ -31,7 +29,6 @@ const postCartItems = (item, userId, toast) => (dispatch) => {
 const removeCartItem = (userId, productId, toast) => (dispatch) => {
     dispatch({ type: types.REMOVE_CART_ITEM_REQUEST })
     return axios.delete(`https://bettermart.onrender.com/cart/${userId}/${productId}`).then((res) => {
-
         setToast(toast, "Item Removed", "success");
         return dispatch({ type: types.REMOVE_CART_ITEM_SUCCESS })
     }).catch((err) => {

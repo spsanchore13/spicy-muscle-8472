@@ -21,12 +21,12 @@ const Basket = ({ name, productId, price, image, quantity }) => {
   const userId = localStorage.getItem("userId") || "636ccf3ff2b55f7b5ac1f105";
   const toast = useToast();
   const handleQuantity = (item) => {
-    dispatch(postCartItems(item, userId)).then(() =>
-      dispatch(getCartItems(userId))
-    );
+    dispatch(postCartItems(item, userId))
+      .then(() => dispatch(getCartItems(userId)))
+      .catch((err) => console.log(err));
   };
 
-  const handleRemove = (userId, productId) => {
+  const handleRemove = (userId, productId, toast) => {
     dispatch(removeCartItem(userId, productId, toast)).then(() =>
       dispatch(getCartItems(userId))
     );
@@ -81,7 +81,7 @@ const Basket = ({ name, productId, price, image, quantity }) => {
         <Button
           variant="link"
           color="#4A5766"
-          onClick={() => handleRemove(userId, productId)}
+          onClick={() => handleRemove(userId, productId, toast)}
         >
           Remove
         </Button>
