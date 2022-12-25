@@ -57,7 +57,7 @@ const ProductsDetails = () => {
 
   const fetchProductsDetail = async () => {
     const res = await axios
-      .get(`https://pear-brainy-ant.cyclic.app/products/${productId}`)
+      .get(`https://talented-cyan-piglet.cyclic.app//products/${productId}`)
       .catch((err) => {
         console.log(err);
       });

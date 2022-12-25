@@ -44,7 +44,7 @@ const ShippingForm = () => {
     const {
       data: { order },
     } = await axios.post(
-      `https://pear-brainy-ant.cyclic.app/checkout/order/${localStorage.getItem(
+      `https://talented-cyan-piglet.cyclic.app//checkout/order/${localStorage.getItem(
         "userId"
       )}`,
       {
@@ -60,7 +60,7 @@ const ShippingForm = () => {
       image:
         "https://media-exp1.licdn.com/dms/image/D4D03AQG-maywhM50mw/profile-displayphoto-shrink_400_400/0/1666174115805?e=1673481600&v=beta&t=tkIpIyaKve2gY4LUdGPqzCv_rSqnBpYu0oxUcN6xLLw",
       order_id: order.id,
-      callback_url: `https://pear-brainy-ant.cyclic.app/checkout/order/${localStorage.getItem(
+      callback_url: `https://talented-cyan-piglet.cyclic.app//checkout/order/${localStorage.getItem(
         "userId"
       )}/paymentverification`,
       prefill: {
