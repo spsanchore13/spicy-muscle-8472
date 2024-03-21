@@ -8,6 +8,27 @@
 
 [https://drive.google.com/file/d/11HRw7vJF8pg8LHpEKHq2VP0q7V6eMJlQ/view?usp=share\_link](https://drive.google.com/file/d/11HRw7vJF8pg8LHpEKHq2VP0q7V6eMJlQ/view?usp=share_link)
 
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   Responsiveness
+*   All Data Stored In Mongo DB
+*   User Authentication
+*   Razorpay Payment Gateway
+  
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   React
+*   Redux
+*   Chakra UI
+*   Node js
+*   Express js
+*   Mongo DB
+
 <h2>Project Screenshots:</h2>
 
 <img src="https://res.cloudinary.com/didawtzbf/image/upload/v1668359821/1_oiy6ei.png" alt="project-screenshot" width="100%" height="400px/">
@@ -23,53 +44,5 @@
 <img src="https://res.cloudinary.com/didawtzbf/image/upload/v1668359906/6_pd52ct.png" alt="project-screenshot" width="40%" height="400px/">
 
   
-  
-<h2>🧐 Features</h2>
-
-Here're some of the project's best features:
-
-*   Responsiveness
-*   All Data Stored In Mongo DB
-*   User Authentication
-*   Razorpay Payment Gateway
-
-<h2>🛠️ Installation Steps:</h2>
-
-<p>1. Clone into your local system</p>
-
-```
-https://github.com/spsanchore13/spicy-muscle-8472.git
-```
-
-<p>2. Install node modules for client and server</p>
-
-```
-npm install
-```
-
-<p>3. Now run server by going in server folder</p>
-
-```
-node index.js
-```
-
-<p>4. Now you can run client by going in client folder</p>
-
-```
-npm start
-```
-
-  
-  
-<h2>💻 Built with</h2>
-
-Technologies used in the project:
-
-*   React
-*   Redux
-*   Chakra UI
-*   Node js
-*   Express js
-*   Mongo DB
 
 
